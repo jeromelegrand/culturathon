@@ -1,9 +1,37 @@
-$background-color: #333335;
+$background-color: #000000;
 $text-color: #CCCCCC;
+$button-text-color: #FFFFFF;
+$gradient-primary:linear-gradient(to right, red , yellow);
+
 
 @import '~bootstrap/scss/bootstrap';
 
 body{
   background-color: $background-color;
   color : $text-color;
+}
+
+.btn{
+  color:$button-text-color;
+  border-width: 3px;
+  border-top: solid 0px transparent;
+  border-left: solid 0px transparent;
+  border-right: solid 0px transparent;
+  border-radius:0px;
+  font-weight:bold;
+  animation-name: example;
+  animation-duration: 4s;
+}
+
+.btn:hover{
+  background:darken( $background-color, 10% );
+  transition: background 0.5s;
+}
+
+btn-outline-primary{
+  border-color:$gradient-primary;
+}
+
+.row {
+  margin: 0;
 }
