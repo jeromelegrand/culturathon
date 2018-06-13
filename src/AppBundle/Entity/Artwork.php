@@ -178,4 +178,28 @@ class Artwork
     {
         return $this->pictures;
     }
+
+    /**
+     * Set museum
+     *
+     * @param \AppBundle\Entity\Museum $museum
+     *
+     * @return Artwork
+     */
+    public function setMuseum(\AppBundle\Entity\Museum $museum = null)
+    {
+        $this->museum = $museum;
+
+        return $this;
+    }
+
+    /**
+     * Get museum
+     *
+     * @return \AppBundle\Entity\Museum
+     */
+    public function getMuseum()
+    {
+        return $this->museum;
+    }
 }
