@@ -6,6 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use AppBundle\Entity\Picture;
 use AppBundle\Entity\Museum;
+use AppBundle\Entity\ArtStyle;
 
 /**
  * Artwork
@@ -59,6 +60,12 @@ class Artwork
      * @ORM\ManyToOne(targetEntity="Museum", inversedBy="artworks")
      */
     private $museum;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="ArtStyle", inversedBy="artworks")
+     */
+    private $artStyle;
+
     /**
      * Constructor
      */
@@ -229,5 +236,29 @@ class Artwork
     public function getMuseum()
     {
         return $this->museum;
+    }
+
+    /**
+     * Set artStyle
+     *
+     * @param \AppBundle\Entity\ArtStyle $artStyle
+     *
+     * @return Artwork
+     */
+    public function setArtStyle(\AppBundle\Entity\ArtStyle $artStyle = null)
+    {
+        $this->artStyle = $artStyle;
+
+        return $this;
+    }
+
+    /**
+     * Get artStyle
+     *
+     * @return \AppBundle\Entity\ArtStyle
+     */
+    public function getArtStyle()
+    {
+        return $this->artStyle;
     }
 }
