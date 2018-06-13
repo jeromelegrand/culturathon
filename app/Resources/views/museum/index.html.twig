@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Museums list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>City</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for museum in museums %}
+            <tr>
+                <td><a href="{{ path('museum_show', { 'id': museum.id }) }}">{{ museum.id }}</a></td>
+                <td>{{ museum.name }}</td>
+                <td>{{ museum.city }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('museum_show', { 'id': museum.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('museum_edit', { 'id': museum.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('museum_new') }}">Create a new museum</a>
+        </li>
+    </ul>
+{% endblock %}

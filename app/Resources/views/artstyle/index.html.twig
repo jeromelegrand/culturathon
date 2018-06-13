@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Artstyles list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for artStyle in artStyles %}
+            <tr>
+                <td><a href="{{ path('artstyle_show', { 'id': artStyle.id }) }}">{{ artStyle.id }}</a></td>
+                <td>{{ artStyle.name }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('artstyle_show', { 'id': artStyle.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('artstyle_edit', { 'id': artStyle.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('artstyle_new') }}">Create a new artStyle</a>
+        </li>
+    </ul>
+{% endblock %}

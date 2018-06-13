@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Artworks list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Characteristics</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for artwork in artworks %}
+            <tr>
+                <td><a href="{{ path('artwork_show', { 'id': artwork.id }) }}">{{ artwork.id }}</a></td>
+                <td>{{ artwork.name }}</td>
+                <td>{{ artwork.characteristics }}</td>
+                <td>{{ artwork.description }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('artwork_show', { 'id': artwork.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('artwork_edit', { 'id': artwork.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('artwork_new') }}">Create a new artwork</a>
+        </li>
+    </ul>
+{% endblock %}
