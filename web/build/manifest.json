@@ -1,5 +1,6 @@
 {
   "web/js/app.js": "/web/js/app.js",
   "web/css/style.js": "/web/css/style.js",
-  "web/css/style.css": "/web/css/style.css"
+  "web/css/style.css": "/web/css/style.css",
+  "web/js/speech.js": "/web/js/speech.js"
 }

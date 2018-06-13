@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    <form action="{{ path('play') }}" method="POST">
+        <div class="form-group">
+            <label class="form-label" for="text">Mon texte</label>
+            <textarea id="text" name="text"></textarea>
+        </div>
+
+        <input type="submit" class="btn btn-info" value="Audio" />
+    </form>
+{% endblock %}
+
+{% block javascripts%}
+    <script src="{{ asset('build/js/speech.js') }}"></script>
+{% endblock %}
