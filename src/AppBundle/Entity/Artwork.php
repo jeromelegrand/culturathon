@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use AppBundle\Entity\Picture;
+use AppBundle\Entity\Museum;
 
 /**
  * Artwork
@@ -47,6 +48,12 @@ class Artwork
      * @ORM\OneToMany(targetEntity="Picture", mappedBy="artwork")
      */
     private $pictures;
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Museum", inversedBy="artworks")
+     */
+    private $museum;
 
 
     /**

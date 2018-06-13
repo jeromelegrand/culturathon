@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use AppBundle\Entity\Artwork;
 
 /**
  * Museum
@@ -34,6 +35,11 @@ class Museum
      * @ORM\Column(name="city", type="string", length=255)
      */
     private $city;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Artwork", mappedBy="museum")
+     */
+    private $artworks;
 
 
     /**
