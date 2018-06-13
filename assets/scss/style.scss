@@ -1,7 +1,17 @@
 $background-color: #000000;
 $text-color: #CCCCCC;
 $button-text-color: #FFFFFF;
-$gradient-primary:linear-gradient(to right, red , yellow);
+$blue: #0088AA;
+$turquoise: #00AA55;
+$green: #88AA00;
+$yellow: #DDDD00;
+$orange: #FF8800;
+$red: #DD0000;
+$violet: #AA00AA;
+$gradient-blue:linear-gradient(to right, $blue , $turquoise);
+$gradient-violet:linear-gradient(to right, $blue , $violet);
+$gradient-orange:linear-gradient(to right, $orange , $red);
+$gradient-green:linear-gradient(to right, $green , $yellow);
 
 
 @import '~bootstrap/scss/bootstrap';
@@ -13,6 +23,7 @@ body{
 
 .btn{
   color:$button-text-color;
+  background-color: lighten( $background-color, 10% );
   border-width: 3px;
   border-top: solid 0px transparent;
   border-left: solid 0px transparent;
@@ -21,15 +32,32 @@ body{
   font-weight:bold;
   animation-name: example;
   animation-duration: 4s;
+  border-bottom: 6px solid transparent;
 }
 
 .btn:hover{
-  background:darken( $background-color, 10% );
+  background-color:lighten( $background-color, 15% );
   transition: background 0.5s;
 }
 
-btn-outline-primary{
-  border-color:$gradient-primary;
+.btn-blue{
+  border-image: $gradient-blue;
+  border-image-slice: 1;
+}
+
+.btn-violet{
+  border-image: $gradient-violet;
+  border-image-slice: 1;
+}
+
+.btn-orange{
+  border-image: $gradient-orange;
+  border-image-slice: 1;
+}
+
+.btn-green{
+  border-image: $gradient-green;
+  border-image-slice: 1;
 }
 
 .row {
