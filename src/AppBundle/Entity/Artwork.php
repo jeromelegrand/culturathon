@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use AppBundle\Entity\Picture;
 use AppBundle\Entity\Museum;
@@ -49,17 +50,27 @@ class Artwork
      */
     private $pictures;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Artist", inversedBy="artworks")
+     */
+    private $artist;
 
     /**
      * @ORM\ManyToOne(targetEntity="Museum", inversedBy="artworks")
      */
     private $museum;
-
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->pictures = new ArrayCollection();
+    }
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -137,13 +148,6 @@ class Artwork
     {
         return $this->description;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->pictures = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
      * Add picture
@@ -177,6 +181,30 @@ class Artwork
     public function getPictures()
     {
         return $this->pictures;
+    }
+
+    /**
+     * Set artist
+     *
+     * @param \AppBundle\Entity\Artist $artist
+     *
+     * @return Artwork
+     */
+    public function setArtist(\AppBundle\Entity\Artist $artist = null)
+    {
+        $this->artist = $artist;
+
+        return $this;
+    }
+
+    /**
+     * Get artist
+     *
+     * @return \AppBundle\Entity\Artist
+     */
+    public function getArtist()
+    {
+        return $this->artist;
     }
 
     /**
