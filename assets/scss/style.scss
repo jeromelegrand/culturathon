@@ -1,0 +1,9 @@
+$background-color: #333335;
+$text-color: #CCCCCC;
+
+@import '~bootstrap/scss/bootstrap';
+
+body{
+  background-color: $background-color;
+  color : $text-color;
+}
