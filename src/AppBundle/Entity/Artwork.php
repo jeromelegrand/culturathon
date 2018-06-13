@@ -48,6 +48,10 @@ class Artwork
      */
     private $pictures;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Artist", inversedBy="artworks")
+     */
+    private $artist;
 
     /**
      * Get id
@@ -170,5 +174,29 @@ class Artwork
     public function getPictures()
     {
         return $this->pictures;
+    }
+
+    /**
+     * Set artist
+     *
+     * @param \AppBundle\Entity\Artist $artist
+     *
+     * @return Artwork
+     */
+    public function setArtist(\AppBundle\Entity\Artist $artist = null)
+    {
+        $this->artist = $artist;
+
+        return $this;
+    }
+
+    /**
+     * Get artist
+     *
+     * @return \AppBundle\Entity\Artist
+     */
+    public function getArtist()
+    {
+        return $this->artist;
     }
 }

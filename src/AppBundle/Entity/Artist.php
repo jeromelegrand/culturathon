@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -56,6 +57,10 @@ class Artist
      */
     private $description;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Artwork", mappedBy="artist")
+     */
+    private $artworks;
 
     /**
      * Get id
@@ -185,5 +190,47 @@ class Artist
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->artworks = new ArrayCollection();
+    }
+
+    /**
+     * Add artwork
+     *
+     * @param \AppBundle\Entity\Artwork $artwork
+     *
+     * @return Artist
+     */
+    public function addArtwork(\AppBundle\Entity\Artwork $artwork)
+    {
+        $this->artworks[] = $artwork;
+
+        return $this;
+    }
+
+    /**
+     * Remove artwork
+     *
+     * @param \AppBundle\Entity\Artwork $artwork
+     */
+    public function removeArtwork(\AppBundle\Entity\Artwork $artwork)
+    {
+        $this->artworks->removeElement($artwork);
+    }
+
+    /**
+     * Get artworks
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getArtworks()
+    {
+        return $this->artworks;
     }
 }
