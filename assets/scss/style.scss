@@ -1,4 +1,4 @@
-$background-color: #333335;
+$background-color: #000000;
 $text-color: #CCCCCC;
 
 @import '~bootstrap/scss/bootstrap';
@@ -6,4 +6,12 @@ $text-color: #CCCCCC;
 body{
   background-color: $background-color;
   color : $text-color;
+}
+
+.background-img {
+
+}
+
+.row {
+  margin: 0;
 }
