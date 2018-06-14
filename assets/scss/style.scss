@@ -21,6 +21,29 @@ body{
   color : $text-color;
 }
 
+.form-control, .form-control:focus {
+  background-color: lighten( $background-color, 10% );
+  border-radius:0px;
+  border:0px solid transparent;
+  color:$text-color;
+}
+
+.form-control:focus {
+  background-color: lighten( $background-color, 15% );
+  color:$button-text-color;
+}
+
+.form-control-label, .form-control-label:focus, legend {
+  color:$button-text-color;
+  font-weight:bold;
+}
+
+
+
+
+
+/************ Boutons ******************/
+
 .btn{
   color:$button-text-color;
   background-color: lighten( $background-color, 10% );
@@ -37,6 +60,7 @@ body{
 
 .btn:hover{
   background-color:lighten( $background-color, 15% );
+  color:$button-text-color;
   transition: background 0.5s;
 }
 
