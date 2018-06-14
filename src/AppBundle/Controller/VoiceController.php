@@ -18,7 +18,7 @@ class VoiceController extends Controller
      */
     public function generateAction(Request $request, TextToSpeech $textToSpeech)
     {
-        if ($request->query->get('text') !== "" && $request->query->get('file') !== "") {
+        if (!in_array($request->query->get('text'), ['', null]) && !in_array($request->query->get('file'), ['', null])) {
             $textToSpeech->generateAudioFile($request->query->get('text'), $request->query->get('file'));
         }
         return $this->render('voice/textToSpeech.twig', []);
