@@ -2,7 +2,9 @@
 
 namespace AppBundle\Form;
 
+use AppBundle\Entity\ArtStyle;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,14 +15,20 @@ class ArtStyleType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name');
-    }/**
+        $builder
+            ->add('name', TextType::class, [
+                'label' => 'Style de l\'oeuvre'
+            ])
+        ;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\ArtStyle'
+            'data_class' => ArtStyle::class
         ));
     }
 
@@ -29,7 +37,7 @@ class ArtStyleType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'appbundle_artstyle';
+        return 'app_bundle_artstyle';
     }
 
 
