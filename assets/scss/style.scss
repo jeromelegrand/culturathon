@@ -12,6 +12,8 @@ $gradient-blue:linear-gradient(to right, $blue , $turquoise);
 $gradient-violet:linear-gradient(to right, $blue , $violet);
 $gradient-orange:linear-gradient(to right, $orange , $red);
 $gradient-green:linear-gradient(to right, $green , $yellow);
+$gradient-yellow:linear-gradient(to right, $yellow , $orange);
+$gradient-red:linear-gradient(to right, $red , $violet);
 
 
 @import '~bootstrap/scss/bootstrap';
@@ -116,6 +118,36 @@ body{
   border-image-slice: 1;
 }
 
+.btn-yellow{
+  border-image: $gradient-yellow;
+  border-image-slice: 1;
+}
+.btn-red{
+  border-image: $gradient-red;
+  border-image-slice: 1;
+}
+
 .row {
   margin: 0;
+}
+
+.museum {
+  list-style-type: none;
+  li {
+    border-bottom: 1px solid darken($text-color, 50%);
+    margin-top: 20px;
+    span {
+      color: darken($text-color, 50%);
+    }
+  }
+
+}
+
+.btn-size-fix {
+  width: 100px;
+}
+
+.lign {
+  border-bottom: 1px  solid darken($text-color, 50%);
+
 }

@@ -1,36 +1,103 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Artwork</h1>
+    <div class="row art my-5">
+        <div class="col-md-4">
+            <div class="row d-block d-md-none">
+                <img class ="img-fluid" src="{{ artwork.pictures[0].url }}" alt="{{ artwork.name }}">
+            </div>
+            <div class="row">
+                <h1>{{ artwork.name }}</h1>
+            </div>
+            <div class="row">
+                <h2>{{ artwork.artist.firstname }} {{ artwork.artist.lastname }}</h2>
+            </div>
+            <div class="row">
+                <p><i class="fa fa-camera" aria-hidden="true"></i>
+                    Photographie
+                </p>
+                <p>
+                    <i class="fa fa-paint-brush" aria-hidden="true"></i>
+                    Peinture
+                </p>
+                <p>
+                    <i class="fa fa-music" aria-hidden="true"></i>
+                    Musique
+                </p>
+                <p>
+                    <i class="fa fa-sign-language" aria-hidden="true"></i>
+                    Sculpture
+                </p>
+                <p>
+                    <i class="fa fa-book" aria-hidden="true"></i>
+                    Littérature
+                </p>
 
-    <table>
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ artwork.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ artwork.name }}</td>
-            </tr>
-            <tr>
-                <th>Characteristics</th>
-                <td>{{ artwork.characteristics }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ artwork.description }}</td>
-            </tr>
-            <tr>
-                <th>Type</th>
-                <td>{{ artwork.type }}</td>
-            </tr>
-            <tr>
-                <th>Picture</th>
-                <td>{{ artwork.picture }}</td>
-            </tr>
-        </tbody>
-    </table>
+                <p>{{ artwork.characteristics }}</p>
+            </div>
+            <div class="row">
+                <p>{{ artwork.description }}</p>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h2>Détails du musée</h2>
+                    <ul class="museum">
+                        <li>
+                            <p>
+
+                                <i class="fa fa-magic" aria-hidden="true"></i>
+                                <span></span>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <i class="fa fa-calendar" aria-hidden="true"></i>
+                                <span></span>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <i class="fa fa-university" aria-hidden="true"></i>
+                                <span></span>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <i class="fa fa-car" aria-hidden="true"></i>
+                                <span></span>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <i class="fa fa-link" aria-hidden="true"></i>
+                                <span></span>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-5 offset-1 d-none d-md-block">
+            <img class ="img-fluid" src="{{ artwork.pictures[0].url }}" alt="{{ artwork.name }}">
+        </div>
+    </div>
+
+
+    <div class="row no-gutters">
+        <div class="col-md-1">
+            <button type="button" class="btn btn-yellow btn-size-fix">Précédent</button>
+        </div>
+        <div class="col-md-1 offset-10">
+            <button type="button" class="btn btn-orange btn-size-fix">Suivant</button>
+        </div>
+    </div>
+    <div class="row my-5">
+        <div class="col">
+            <a href="{{ path('artwork_index') }}">Liste des oeuvres</a>
+        </div>
+    </div>
+>>>>>>> ffaa601b3b493a904d01ad10318d7398c0c22167
 
     <ul>
         <li>
