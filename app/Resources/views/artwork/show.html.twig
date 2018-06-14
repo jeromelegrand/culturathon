@@ -13,6 +13,26 @@
                 <h2>{{ artwork.artist.firstname }} {{ artwork.artist.lastname }}</h2>
             </div>
             <div class="row">
+                <p><i class="fa fa-camera" aria-hidden="true"></i>
+                    Photographie
+                </p>
+                <p>
+                    <i class="fa fa-paint-brush" aria-hidden="true"></i>
+                    Peinture
+                </p>
+                <p>
+                    <i class="fa fa-music" aria-hidden="true"></i>
+                    Musique
+                </p>
+                <p>
+                    <i class="fa fa-sign-language" aria-hidden="true"></i>
+                    Sculpture
+                </p>
+                <p>
+                    <i class="fa fa-book" aria-hidden="true"></i>
+                    Littérature
+                </p>
+
                 <p>{{ artwork.characteristics }}</p>
             </div>
             <div class="row">
@@ -21,11 +41,38 @@
             <div class="row">
                 <div class="col">
                     <h2>Détails du musée</h2>
-                    <ul>
-                        <li>Nom de l'exposition</li>
-                        <li>Agenda</li>
-                        <li>Musée</li>
-                        <li>Lien internet</li>
+                    <ul class="museum">
+                        <li>
+                            <p>
+
+                                <i class="fa fa-magic" aria-hidden="true"></i>
+                                <span></span>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <i class="fa fa-calendar" aria-hidden="true"></i>
+                                <span></span>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <i class="fa fa-university" aria-hidden="true"></i>
+                                <span></span>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <i class="fa fa-car" aria-hidden="true"></i>
+                                <span></span>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <i class="fa fa-link" aria-hidden="true"></i>
+                                <span></span>
+                            </p>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -37,15 +84,12 @@
     </div>
 
 
-    <div class="row">
-        <div class="col-md-3">
-            <button type="button" class="btn btn-dark">Précédent</button>
+    <div class="row no-gutters">
+        <div class="col-md-1">
+            <button type="button" class="btn btn-yellow btn-size-fix">Précédent</button>
         </div>
-        <div class="col-md-6">
-
-        </div>
-        <div class="col-md-3">
-            <button type="button" class="btn btn-dark">Suivant</button>
+        <div class="col-md-1 offset-10">
+            <button type="button" class="btn btn-orange btn-size-fix">Suivant</button>
         </div>
     </div>
     <div class="row my-5">
