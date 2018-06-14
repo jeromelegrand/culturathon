@@ -36,6 +36,8 @@ class ArtworkController extends Controller
      *
      * @Route("/new", name="artwork_new")
      * @Method({"GET", "POST"})
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function newAction(Request $request)
     {
@@ -62,6 +64,8 @@ class ArtworkController extends Controller
      *
      * @Route("/{id}", name="artwork_show")
      * @Method("GET")
+     * @param Artwork $artwork
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function showAction(Artwork $artwork)
     {
@@ -78,6 +82,9 @@ class ArtworkController extends Controller
      *
      * @Route("/{id}/edit", name="artwork_edit")
      * @Method({"GET", "POST"})
+     * @param Request $request
+     * @param Artwork $artwork
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function editAction(Request $request, Artwork $artwork)
     {
@@ -103,6 +110,9 @@ class ArtworkController extends Controller
      *
      * @Route("/{id}", name="artwork_delete")
      * @Method("DELETE")
+     * @param Request $request
+     * @param Artwork $artwork
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function deleteAction(Request $request, Artwork $artwork)
     {
@@ -132,5 +142,25 @@ class ArtworkController extends Controller
             ->setMethod('DELETE')
             ->getForm()
         ;
+    }
+
+    /**
+     * @Route("/favorite", name="artwork_favorite")
+     * @Method("GET")
+     * @param int $id
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function markAsFavorite(int $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $artwork = $em->getRepository(Artwork::class)->findOneById($id);
+
+        if ($artwork->getFavorite() === 1) {
+            $artwork->setFavorite(false);
+        } elseif ($artwork->getFavorite() === 0) {
+            $artwork->setFavorite(true);
+        }
+
+        return $this->redirectToRoute('artwork_show', ['id' => $artwork->getId()]);
     }
 }

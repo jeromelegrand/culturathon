@@ -88,6 +88,11 @@ class Artwork
     private $picture;
 
     /**
+     * @ORM\Column(name="favorite", type="boolean")
+     */
+    private $favorite;
+
+    /**
      * Get id
      *
      * @return integer
@@ -337,5 +342,23 @@ class Artwork
     public function getAdvancedDescription()
     {
         return $this->advancedDescription;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFavorite()
+    {
+        return $this->favorite;
+    }
+
+    /**
+     * @param mixed $favorite
+     * @return Artwork
+     */
+    public function setFavorite($favorite)
+    {
+        $this->favorite = $favorite;
+        return $this;
     }
 }
