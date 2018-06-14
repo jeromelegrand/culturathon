@@ -13,30 +13,45 @@
                 <h2>{{ artwork.artist.firstname }} {{ artwork.artist.lastname }}</h2>
             </div>
             <div class="row">
-                <p><i class="fa fa-camera" aria-hidden="true"></i>
-                    Photographie
-                </p>
-                <p>
-                    <i class="fa fa-paint-brush" aria-hidden="true"></i>
-                    Peinture
-                </p>
-                <p>
-                    <i class="fa fa-music" aria-hidden="true"></i>
-                    Musique
-                </p>
-                <p>
-                    <i class="fa fa-sign-language" aria-hidden="true"></i>
-                    Sculpture
-                </p>
-                <p>
-                    <i class="fa fa-book" aria-hidden="true"></i>
-                    Littérature
-                </p>
-
-                <p>{{ artwork.characteristics }}</p>
+                {% if artwork.type == "Photographie" %}
+                    <p>
+                        <i class="fa fa-camera" aria-hidden="true"></i>
+                        Photographie
+                    </p>
+                {% endif %}
+                {% if artwork.type == "Peinture" %}
+                    <p>
+                        <i class="fa fa-paint-brush" aria-hidden="true"></i>
+                        Peinture
+                    </p>
+                {% endif %}
+                {% if artwork.type == "Musique" %}
+                    <p>
+                        <i class="fa fa-music" aria-hidden="true"></i>
+                        Musique
+                    </p>
+                {% endif %}
+                {% if artwork.type == "Sculpture" %}
+                    <p>
+                        <i class="fa fa-sign-language" aria-hidden="true"></i>
+                        Sculpture
+                    </p>
+                {% endif %}
+                {% if artwork.type == "Litterature" %}
+                    <p>
+                        <i class="fa fa-book" aria-hidden="true"></i>
+                        Litterature
+                    </p>
+                {% endif %}
+            </div>
+            <div class="row mb-2">
+                <div>
+                    <h5>Caractéristiques</h5>
+                </div>
+                <div class="col-12">{{ artwork.characteristics }}</div>
             </div>
 
-            <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <ul class="nav nav-tabs d-flex justify-content-center" id="myTab" role="tablist">
                 <li class="nav-item">
                     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#junior" role="tab" aria-controls="home" aria-selected="true">Junior</a>
                 </li>
@@ -48,18 +63,25 @@
                 </li>
             </ul>
             <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade show active" id="junior" role="tabpanel" aria-labelledby="home-tab"> <p>{{ artwork.juniorDescription }}</p></div>
-                <div class="tab-pane fade" id="amateur" role="tabpanel" aria-labelledby="profile-tab"> <p>{{ artwork.standardDescription }}</p></div>
-                <div class="tab-pane fade" id="expert" role="tabpanel" aria-labelledby="contact-tab"> <p>{{ artwork.advancedDescription }}</p></div>
+                <div class="tab-pane fade show active col-12" id="junior" role="tabpanel" aria-labelledby="home-tab">
+                    <p>{{ artwork.juniorDescription }}</p>
+                </div>
+                <div class="tab-pane fade col-12" id="amateur" role="tabpanel" aria-labelledby="profile-tab">
+                    <p>{{ artwork.standardDescription }}</p>
+                </div>
+                <div class="tab-pane fade col-12" id="expert" role="tabpanel" aria-labelledby="contact-tab">
+                    <p>{{ artwork.advancedDescription }}</p>
+                </div>
             </div>
 
             <div class="row">
-                <div class="col">
+                <div>
                     <h2>Détails du musée</h2>
+                </div>
+                <div class="col">
                     <ul class="museum">
                         <li>
                             <p>
-
                                 <i class="fa fa-magic" aria-hidden="true"></i>
                                 <span></span>
                             </p>
@@ -73,7 +95,7 @@
                         <li>
                             <p>
                                 <i class="fa fa-university" aria-hidden="true"></i>
-                                <span></span>
+                                <span>{{ artwork.museum.name }}</span>
                             </p>
                         </li>
                         <li>
@@ -85,7 +107,7 @@
                         <li>
                             <p>
                                 <i class="fa fa-link" aria-hidden="true"></i>
-                                <span></span>
+                                <span>{{ artwork.museum.city }}</span>
                             </p>
                         </li>
                     </ul>
