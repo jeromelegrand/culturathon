@@ -183,6 +183,16 @@ class ArtworkController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+
+            $files = [];
+            $files[] = $artwork->getJuniorAudio();
+            $files[] = $artwork->getStandardAudio();
+            $files[] = $artwork->getAdvancedAudio();
+
+            foreach ($files as $file) {
+                unlink(__DIR__ .'/../../../web/audio/files/' . $file);
+            }
+
             $em->remove($artwork);
             $em->flush();
         }
@@ -207,21 +217,22 @@ class ArtworkController extends Controller
     }
 
     /**
-     * @Route("/favorite", name="artwork_favorite")
-     * @Method("GET")
-     * @param int $id
+     * @Route("/favorite/{id}", name="artwork_favorite")
+     * @param Artwork $artwork
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function markAsFavorite(int $id)
+    public function markAsFavorite(Artwork $artwork)
     {
         $em = $this->getDoctrine()->getManager();
-        $artwork = $em->getRepository(Artwork::class)->findOneById($id);
 
-        if ($artwork->getFavorite() === 1) {
+        if ($artwork->getFavorite() === true) {
             $artwork->setFavorite(false);
-        } elseif ($artwork->getFavorite() === 0) {
+        } elseif ($artwork->getFavorite() === false) {
             $artwork->setFavorite(true);
         }
+
+        $em->persist($artwork);
+        $em->flush();
 
         return $this->redirectToRoute('artwork_show', ['id' => $artwork->getId()]);
     }

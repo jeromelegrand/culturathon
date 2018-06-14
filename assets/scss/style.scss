@@ -214,3 +214,13 @@ body{
 .jumbotron-login {
   background-color: #4d4d4d;
 }
+
+/******* ARTWORK SHOW *********/
+.favorite {
+  font-size: 40px;
+  color: hotpink;
+
+  &:hover {
+    color: deeppink;
+  }
+}
