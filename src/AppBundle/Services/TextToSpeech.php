@@ -29,14 +29,14 @@ class TextToSpeech
      */
     public function generateAudioFile(string $text, string $fileDestination): bool
     {
-        $jsonRequest = file_get_contents('audio/json/data.json');
+        $jsonRequest = file_get_contents(__DIR__ . '/../../../web/audio/json/data.json');
         $jsonRequest = json_decode($jsonRequest);
         $jsonRequest->input->text = $text;
-        $data = fopen('audio/json/data.json', 'w+');
+        $data = fopen(__DIR__ . '/../../../web/audio/json/data.json', 'w+');
         fwrite($data, json_encode($jsonRequest));
         fclose($data);
 
-        $data = file_get_contents('audio/json/data.json');
+        $data = file_get_contents(__DIR__ . '/../../../web/audio/json/data.json');
 
         $curl = new Curl();
         $curl->setHeader('Content-Type', 'application/json');
@@ -46,7 +46,7 @@ class TextToSpeech
             return false;
         }
         else {
-            $fileDestination = 'audio/files/' . $fileDestination . '.mp3';
+            $fileDestination = __DIR__ . '/../../../web/audio/files/' . $fileDestination . '.mp3';
             preg_match('/:\ ".*"/', $curl->response, $stringToDecode);
             $stringToDecode = substr($stringToDecode[0], 3, -1);
             $audioFile = fopen($fileDestination, 'w+');

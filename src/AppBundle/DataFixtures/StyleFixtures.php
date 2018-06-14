@@ -25,41 +25,41 @@ class StyleFixtures extends Fixture
         $style = new ArtStyle();
         $style->setName('Abstrait');
         $manager->persist($style);
-        $this->setReference('style-1', $style);
+        $this->addReference('style-1', $style);
 
         $style = new ArtStyle();
         $style->setName('Contemporain');
         $manager->persist($style);
-        $this->setReference('style-2', $style);
+        $this->addReference('style-2', $style);
 
 
         $style = new ArtStyle();
         $style->setName('Cubisme');
         $manager->persist($style);
-        $this->setReference('style-3', $style);
+        $this->addReference('style-3', $style);
 
         $style = new ArtStyle();
         $style->setName('Imprésionnisme');
         $manager->persist($style);
-        $this->setReference('style-4', $style);
+        $this->addReference('style-4', $style);
 
 
         $style = new ArtStyle();
         $style->setName('Réalisme');
         $manager->persist($style);
-        $this->setReference('style-5', $style);
+        $this->addReference('style-5', $style);
 
 
         $style = new ArtStyle();
         $style->setName('Renaissance');
         $manager->persist($style);
-        $this->setReference('style-6', $style);
+        $this->addReference('style-6', $style);
 
 
         $style = new ArtStyle();
         $style->setName('Surréalisme');
         $manager->persist($style);
-        $this->setReference('style-7', $style);
+        $this->addReference('style-7', $style);
 
         $manager->flush();
     }

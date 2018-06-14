@@ -70,7 +70,6 @@ class ArtistFixtures extends Fixture
         $manager->persist($artist);
         $this->addReference('artist-6', $artist);
 
-
         $manager->flush();
     }
 }
