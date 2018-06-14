@@ -19,5 +19,5 @@
 .idea
 /node_modules/
 /web/build/
-/web/build/*
 *.php~
+web/audio/files
