@@ -97,19 +97,4 @@
             <a href="{{ path('artwork_index') }}">Liste des oeuvres</a>
         </div>
     </div>
->>>>>>> ffaa601b3b493a904d01ad10318d7398c0c22167
-
-    <ul>
-        <li>
-            <a href="{{ path('artwork_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('artwork_edit', { 'id': artwork.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
 {% endblock %}
