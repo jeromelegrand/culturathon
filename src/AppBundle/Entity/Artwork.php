@@ -2,11 +2,7 @@
 
 namespace AppBundle\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-use AppBundle\Entity\Picture;
-use AppBundle\Entity\Museum;
-use AppBundle\Entity\ArtStyle;
 
 /**
  * Artwork
