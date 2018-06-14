@@ -1,16 +1,40 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Artist creation</h1>
+    <div class="text-center">
+        <h1>Nouvel Artiste</h1>
+    </div>
+
 
     {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('artist_index') }}">Back to the list</a>
-        </li>
-    </ul>
+    {{ form_label(form.firstname) }}
+    {{ form_widget(form.firstname) }}
+    {{ form_errors(form.firstname) }}
+
+    {{ form_label(form.lastname) }}
+    {{ form_widget(form.lastname) }}
+    {{ form_errors(form.lastname) }}
+
+
+    <div>
+        {{ form_label(form.dateOfBirth) }}
+        {{ form_widget(form.dateOfBirth) }}
+        {{ form_errors(form.dateOfBirth) }}
+
+        {{ form_label(form.dateOfDeath) }}
+        {{ form_widget(form.dateOfDeath) }}
+        {{ form_errors(form.dateOfDeath) }}
+    </div>
+
+
+    {{ form_label(form.description) }}
+    {{ form_widget(form.description) }}
+    {{ form_errors(form.description) }}
+
+    <div class="text-center">
+        <input class="btn btn-blue" type="submit" value="Ajouter" />
+        <a class="btn btn-green" href="{{ path('artist_index') }}">Retour</a>
+    </div>
+    {{ form_end(form) }}
 {% endblock %}
