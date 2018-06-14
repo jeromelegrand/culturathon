@@ -1,47 +1,20 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Artists list</h1>
-
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Firstname</th>
-                <th>Lastname</th>
-                <th>Dateofbirth</th>
-                <th>Dateofdeath</th>
-                <th>Description</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
+    <div class="text-center">
+        <h1>Artistes</h1><a class="btn btn-violet text-right" href="{{ path('artist_new') }}">Nouvel Artiste</a>
+    </div>
+    <div class="row no-gutters">
         {% for artist in artists %}
-            <tr>
-                <td><a href="{{ path('artist_show', { 'id': artist.id }) }}">{{ artist.id }}</a></td>
-                <td>{{ artist.firstname }}</td>
-                <td>{{ artist.lastname }}</td>
-                <td>{% if artist.dateOfBirth %}{{ artist.dateOfBirth|date('Y-m-d') }}{% endif %}</td>
-                <td>{% if artist.dateOfDeath %}{{ artist.dateOfDeath|date('Y-m-d') }}{% endif %}</td>
-                <td>{{ artist.description }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('artist_show', { 'id': artist.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('artist_edit', { 'id': artist.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
+            <div class="col-xs-6 col-sm-4 col-md-3">
+                <div class="card" >
+                    <div class="card-body text-center">
+                        <h5 class="card-title">{{ artist.firstname }} {{ artist.lastname }}</h5>
+                        <a class="btn btn-orange" href="{{ path('artist_edit', { 'id': artist.id }) }}">Modifier</a>
+                    </div>
+                </div>
+            </div>
         {% endfor %}
-        </tbody>
-    </table>
+    </div>
 
-    <ul>
-        <li>
-            <a href="{{ path('artist_new') }}">Create a new artist</a>
-        </li>
-    </ul>
 {% endblock %}
