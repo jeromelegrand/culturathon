@@ -4,9 +4,12 @@ namespace AppBundle\Form;
 
 use AppBundle\Entity\Artist;
 use AppBundle\Entity\ArtStyle;
+use AppBundle\Entity\Artwork;
 use AppBundle\Entity\Museum;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -17,34 +20,50 @@ class ArtworkType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name')
-            ->add('characteristics')
-            ->add('description')
+        $builder
+            ->add('name', TextType::class, [
+                'label' => 'Nom de l\'oeuvre'
+            ])
+            ->add('characteristics', TextareaType::class, [
+                'label' => 'Caractéristiques'
+            ])
+            ->add('juniorDescription', TextareaType::class, [
+                'label' => 'Description de l\'oeuvre pour les enfants'
+            ])
+            ->add('standardDescription', TextareaType::class, [
+                'label' => 'Description standard de l\'oeuvre'
+            ])
+            ->add('advancedDescription', TextareaType::class, [
+                'label' => 'Description avancée de l\'oeuvre'
+            ])
+            ->add('type', TextType::class, [
+                'label' => 'Type d\'oeuvre'
+            ])
+            ->add('picture', TextareaType::class, [
+                'label' => 'Lien vers l\'illustration de l\'oeuvre'
+            ])
             ->add('artist', EntityType::class, [
-                'label' => 'Artist',
                 'class' => Artist::class,
-                'choice_label' => 'firstName',
-                'invalid_message' => 'Le champ est invalide.',
+                'label' => 'Artiste'
             ])
             ->add('museum', EntityType::class, [
-                'label' => 'Musée',
                 'class' => Museum::class,
-                'choice_label' => 'name',
-                'invalid_message' => 'Le champ est invalide.',
+                'label' => 'Lieu d\'exposition'
             ])
             ->add('artStyle', EntityType::class, [
-                'label' => 'Style',
                 'class' => ArtStyle::class,
-                'choice_label' => 'name',
-                'invalid_message' => 'Le champ est invalide.',
-            ]);
-    }/**
+                'label' => 'Style de l\'oeuvre'
+            ])
+        ;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Artwork'
+            'data_class' => Artwork::class
         ));
     }
 
@@ -53,7 +72,7 @@ class ArtworkType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'appbundle_artwork';
+        return 'app_bundle_artwork';
     }
 
 

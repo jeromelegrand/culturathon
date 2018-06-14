@@ -203,11 +203,11 @@ class Artist
     /**
      * Add artwork
      *
-     * @param \AppBundle\Entity\Artwork $artwork
+     * @param Artwork $artwork
      *
      * @return Artist
      */
-    public function addArtwork(\AppBundle\Entity\Artwork $artwork)
+    public function addArtwork(Artwork $artwork)
     {
         $this->artworks[] = $artwork;
 
@@ -217,9 +217,9 @@ class Artist
     /**
      * Remove artwork
      *
-     * @param \AppBundle\Entity\Artwork $artwork
+     * @param Artwork $artwork
      */
-    public function removeArtwork(\AppBundle\Entity\Artwork $artwork)
+    public function removeArtwork(Artwork $artwork)
     {
         $this->artworks->removeElement($artwork);
     }
@@ -232,5 +232,13 @@ class Artist
     public function getArtworks()
     {
         return $this->artworks;
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getFirstname() . ' ' . $this->getLastname();
     }
 }

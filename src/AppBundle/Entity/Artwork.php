@@ -42,14 +42,23 @@ class Artwork
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="text", nullable=true)
+     * @ORM\Column(name="junior_description", type="text", nullable=true)
      */
-    private $description;
+    private $juniorDescription;
 
     /**
-     * @ORM\OneToMany(targetEntity="Picture", mappedBy="artwork")
+     * @var string
+     *
+     * @ORM\Column(name="standard_description", type="text", nullable=true)
      */
-    private $pictures;
+    private $standardDescription;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="advanced_description", type="text", nullable=true)
+     */
+    private $advancedDescription;
 
     /**
      * @ORM\ManyToOne(targetEntity="Artist", inversedBy="artworks")
@@ -67,12 +76,16 @@ class Artwork
     private $artStyle;
 
     /**
-     * Constructor
+     * @var string
+     *
+     * @ORM\Column(name="type", type="string")
      */
-    public function __construct()
-    {
-        $this->pictures = new ArrayCollection();
-    }
+    private $type;
+
+    /**
+     * @ORM\Column(name="picture", type="text")
+     */
+    private $picture;
 
     /**
      * Get id
@@ -133,71 +146,13 @@ class Artwork
     }
 
     /**
-     * Set description
-     *
-     * @param string $description
-     *
-     * @return Artwork
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * Get description
-     *
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-    /**
-     * Add picture
-     *
-     * @param \AppBundle\Entity\Picture $picture
-     *
-     * @return Artwork
-     */
-    public function addPicture(\AppBundle\Entity\Picture $picture)
-    {
-        $this->pictures[] = $picture;
-
-        return $this;
-    }
-
-    /**
-     * Remove picture
-     *
-     * @param \AppBundle\Entity\Picture $picture
-     */
-    public function removePicture(\AppBundle\Entity\Picture $picture)
-    {
-        $this->pictures->removeElement($picture);
-    }
-
-    /**
-     * Get pictures
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getPictures()
-    {
-        return $this->pictures;
-    }
-
-    /**
      * Set artist
      *
-     * @param \AppBundle\Entity\Artist $artist
+     * @param Artist $artist
      *
      * @return Artwork
      */
-    public function setArtist(\AppBundle\Entity\Artist $artist = null)
+    public function setArtist(Artist $artist = null)
     {
         $this->artist = $artist;
 
@@ -217,11 +172,11 @@ class Artwork
     /**
      * Set museum
      *
-     * @param \AppBundle\Entity\Museum $museum
+     * @param Museum $museum
      *
      * @return Artwork
      */
-    public function setMuseum(\AppBundle\Entity\Museum $museum = null)
+    public function setMuseum(Museum $museum = null)
     {
         $this->museum = $museum;
 
@@ -231,7 +186,7 @@ class Artwork
     /**
      * Get museum
      *
-     * @return \AppBundle\Entity\Museum
+     * @return Museum
      */
     public function getMuseum()
     {
@@ -241,11 +196,11 @@ class Artwork
     /**
      * Set artStyle
      *
-     * @param \AppBundle\Entity\ArtStyle $artStyle
+     * @param ArtStyle $artStyle
      *
      * @return Artwork
      */
-    public function setArtStyle(\AppBundle\Entity\ArtStyle $artStyle = null)
+    public function setArtStyle(ArtStyle $artStyle = null)
     {
         $this->artStyle = $artStyle;
 
@@ -255,10 +210,132 @@ class Artwork
     /**
      * Get artStyle
      *
-     * @return \AppBundle\Entity\ArtStyle
+     * @return ArtStyle
      */
     public function getArtStyle()
     {
         return $this->artStyle;
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getName();
+    }
+
+    /**
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param string $type
+     * @return Artwork
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+        return $this;
+    }
+
+    /**
+     * Set picture
+     *
+     * @param string $picture
+     *
+     * @return Artwork
+     */
+    public function setPicture($picture)
+    {
+        $this->picture = $picture;
+
+        return $this;
+    }
+
+    /**
+     * Get picture
+     *
+     * @return string
+     */
+    public function getPicture()
+    {
+        return $this->picture;
+    }
+
+    /**
+     * Set juniorDescription
+     *
+     * @param string $juniorDescription
+     *
+     * @return Artwork
+     */
+    public function setJuniorDescription($juniorDescription)
+    {
+        $this->juniorDescription = $juniorDescription;
+
+        return $this;
+    }
+
+    /**
+     * Get juniorDescription
+     *
+     * @return string
+     */
+    public function getJuniorDescription()
+    {
+        return $this->juniorDescription;
+    }
+
+    /**
+     * Set standardDescription
+     *
+     * @param string $standardDescription
+     *
+     * @return Artwork
+     */
+    public function setStandardDescription($standardDescription)
+    {
+        $this->standardDescription = $standardDescription;
+
+        return $this;
+    }
+
+    /**
+     * Get standardDescription
+     *
+     * @return string
+     */
+    public function getStandardDescription()
+    {
+        return $this->standardDescription;
+    }
+
+    /**
+     * Set advancedDescription
+     *
+     * @param string $advancedDescription
+     *
+     * @return Artwork
+     */
+    public function setAdvancedDescription($advancedDescription)
+    {
+        $this->advancedDescription = $advancedDescription;
+
+        return $this;
+    }
+
+    /**
+     * Get advancedDescription
+     *
+     * @return string
+     */
+    public function getAdvancedDescription()
+    {
+        return $this->advancedDescription;
     }
 }

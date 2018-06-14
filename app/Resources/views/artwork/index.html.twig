@@ -1,5 +1,4 @@
 {% extends 'base.html.twig' %}
-
 {% block body %}
     <div class="text-center">
         <h1>Oeuvres</h1><a class="btn btn-violet text-right" href="{{ path('artwork_new') }}">Nouvelle Oeuvre</a>
@@ -10,7 +9,7 @@
             <div class="card" >
                 <a href="{{ path('artwork_show', { 'id': artwork.id }) }}" class="link-list">
                     <div class="image-wrapper">
-                        <img class="card-img-top" src="{{ artwork.pictures[0].url }}" alt="{{ artwork.name }}">
+                        <img class="card-img-top" src="{{ artwork.picture }}" alt="{{ artwork.name }}">
                     </div>
                 </a>
                 <div class="card-body text-center">
