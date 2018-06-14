@@ -74,6 +74,10 @@ body{
 /************ Navbar  ******************/
 .navbar-dark{
   background-color: lighten( $background-color, 10% );
+
+  & a {
+    text-decoration: none;
+  }
 }
 
 

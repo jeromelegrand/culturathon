@@ -9,35 +9,37 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-
         <nav class="navbar navbar-expand-lg navbar-dark">
-            <span class="navbar-brand mb-0 h1">Comp'Art</span>
+            <span class="navbar-brand mb-0 h1"><a href="{{ path('artwork_index') }}">Comp'Art</a></span>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                            <a class="nav-link btn btn-orange" href="{{ path('fos_user_security_logout') }}">Déconnection</a>
-                        {% else %}
-                            <a class="nav-link btn btn-blue" href="{{ path('fos_user_security_login') }}">Connection</a>
-                        {% endif %}
-                    </li>
+                <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
                         <a class="nav-link btn btn-menu" href="{{ path('artwork_index') }}">Oeuvres</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link btn btn-menu" href="{{ path('artist_index') }}">Artistes</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link btn btn-menu" href="{{ path('museum_index') }}">Musées</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path('artstyle_index') }}">Style</a>
-                    </li>
+                    {% if is_granted("ROLE_ADMIN") %}
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-menu" href="{{ path('artist_index') }}">Artistes</a>
+                        </li>
+                    {% endif %}
+                    {% if is_granted("ROLE_ADMIN") %}
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-menu" href="{{ path('museum_index') }}">Musées</a>
+                        </li>
+                    {% endif %}
+                    {% if is_granted("ROLE_ADMIN") %}
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-menu" href="{{ path('artstyle_index') }}">Style</a>
+                        </li>
+                    {% endif %}
                 </ul>
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    <a class="nav-link btn btn-orange" href="{{ path('fos_user_security_logout') }}">Déconnection</a>
+                {% else %}
+                    <a class="nav-link btn btn-blue" href="{{ path('fos_user_security_login') }}">Connection</a>
+                {% endif %}
             </div>
         </nav>
         <div class="container">

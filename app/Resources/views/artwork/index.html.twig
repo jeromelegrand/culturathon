@@ -1,7 +1,10 @@
 {% extends 'base.html.twig' %}
 {% block body %}
     <div class="text-center">
-        <h1>Oeuvres</h1><a class="btn btn-violet text-right" href="{{ path('artwork_new') }}">Nouvelle Oeuvre</a>
+        <h1>Oeuvres</h1>
+        {% if is_granted("ROLE_ADMIN") %}
+            <a class="btn btn-violet text-right" href="{{ path('artwork_new') }}">Nouvelle Oeuvre</a>
+        {% endif %}
     </div>
     <div class="row no-gutters">
         {% for artwork in artworks %}
@@ -14,7 +17,9 @@
                 </a>
                 <div class="card-body text-center">
                     <h5 class="card-title">{{ artwork.name }}</h5>
-                    <a class="btn btn-orange" href="{{ path('artwork_edit', { 'id': artwork.id }) }}">Modifier</a>
+                    {% if is_granted("ROLE_ADMIN") %}
+                        <a class="btn btn-orange" href="{{ path('artwork_edit', { 'id': artwork.id }) }}">Modifier</a>
+                    {% endif %}
                 </div>
             </div>
         </div>
