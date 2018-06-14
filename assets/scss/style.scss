@@ -71,7 +71,10 @@ body{
   width: 89%;
 }
 
-
+/************ Navbar  ******************/
+.navbar-dark{
+  background-color: lighten( $background-color, 10% );
+}
 
 
 
@@ -96,6 +99,17 @@ body{
   background-color:lighten( $background-color, 15% );
   color:$button-text-color;
   transition: background 0.5s;
+}
+
+.btn-menu{
+  border-image: none;
+  border-image-slice: 1;
+}
+
+.btn-menu:hover{
+  border-image:  $gradient-blue;
+  border-image-slice: 1;
+  color:$button-text-color;
 }
 
 .btn-blue{
