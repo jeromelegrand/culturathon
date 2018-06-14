@@ -111,6 +111,14 @@ class Artwork
     private $favorite;
 
     /**
+     * Artwork constructor.
+     */
+    public function __construct()
+    {
+        $this->setFavorite(false);
+    }
+
+    /**
      * Get id
      *
      * @return integer
