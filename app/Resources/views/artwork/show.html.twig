@@ -46,11 +46,12 @@
             </div>
 
             <div class="row mb-3">
-                <input id="artworkId" type="hidden" value="{{ artwork.id }}">
-                {% if artwork.favorite == false %}
-                    <a href="{{ path('artwork_favorite', {id: artwork.id}) }}"><i class="fa fa-heart-o favorite" aria-hidden="true"></i></a>
-                {% else %}
-                    <a href="{{ path('artwork_favorite', {id: artwork.id}) }}"><i class="fa fa-heart favorite" aria-hidden="true"></i></a>
+                {% if is_granted("ROLE_USER") %}
+                    {% if artwork.favorite == false %}
+                        <a href="{{ path('artwork_favorite', {id: artwork.id}) }}"><i class="fa fa-heart-o favorite" aria-hidden="true"></i></a>
+                    {% else %}
+                        <a href="{{ path('artwork_favorite', {id: artwork.id}) }}"><i class="fa fa-heart favorite" aria-hidden="true"></i></a>
+                    {% endif %}
                 {% endif %}
             </div>
 
