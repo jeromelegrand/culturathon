@@ -141,6 +141,10 @@ body{
   border-image-slice: 1;
 }
 
+.btn-size-fix {
+  width: 100px;
+}
+
 .row {
   margin: 0;
 }
@@ -156,12 +160,16 @@ body{
   }
 
 }
+.img-rotate{
+  perspective:1200px;
+}
 
-.btn-size-fix {
-  width: 100px;
+.img-rotate img{
+  transform: rotateY(-20deg);
+  transform-origin: right center;
+  box-reflect:below 15px
 }
 
 .lign {
   border-bottom: 1px  solid darken($text-color, 50%);
-
 }
