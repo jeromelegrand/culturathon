@@ -8,6 +8,7 @@ use AppBundle\Entity\Artwork;
 use AppBundle\Entity\Museum;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -36,8 +37,15 @@ class ArtworkType extends AbstractType
             ->add('advancedDescription', TextareaType::class, [
                 'label' => 'Description avancée de l\'oeuvre'
             ])
-            ->add('type', TextType::class, [
-                'label' => 'Type d\'oeuvre'
+            ->add('type', ChoiceType::class, [
+                'label' => 'Type d\'oeuvre',
+                'choices' => [
+                    'Photographie' => 'Photographie',
+                    'Peinture' => 'Peinture',
+                    'Musique' => 'Musique',
+                    'Sculpture' => 'Sculpture',
+                    'Littérature' => 'Littérature'
+                ]
             ])
             ->add('picture', TextareaType::class, [
                 'label' => 'Lien vers l\'illustration de l\'oeuvre'
