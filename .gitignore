@@ -20,3 +20,4 @@
 /node_modules/
 /web/build/
 *.php~
+web/audio/files
