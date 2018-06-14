@@ -183,6 +183,16 @@ class ArtworkController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+
+            $files = [];
+            $files[] = $artwork->getJuniorAudio();
+            $files[] = $artwork->getStandardAudio();
+            $files[] = $artwork->getAdvancedAudio();
+
+            foreach ($files as $file) {
+                unlink(__DIR__ .'/../../../web/audio/files/' . $file);
+            }
+
             $em->remove($artwork);
             $em->flush();
         }
