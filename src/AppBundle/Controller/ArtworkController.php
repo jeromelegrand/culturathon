@@ -130,7 +130,6 @@ class ArtworkController extends Controller
             //génération des fichiers audio
             if (!in_array($artwork->getJuniorDescription(), ['', null])) {
                 if (!in_array($artwork->getJuniorAudio(), ['', null])) {
-                    dump(__DIR__ .'/../../../web/audio/files' . $artwork->getJuniorAudio());
                     unlink(__DIR__ .'/../../../web/audio/files/' . $artwork->getJuniorAudio());
                 }
                 $voiceId = uniqid();

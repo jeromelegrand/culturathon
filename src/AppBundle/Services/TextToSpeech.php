@@ -12,6 +12,14 @@ use Curl\Curl;
 
 class TextToSpeech
 {
+
+    private $apiGoogleKey;
+
+    public function __construct($apiGoogleKey)
+    {
+        $this->apiGoogleKey = $apiGoogleKey;
+    }
+
     /**
      * Génère un fichier mp3 dans le dossier web/audio/files à partir de $text et de $fileDestination
      * @param string $text
@@ -32,7 +40,7 @@ class TextToSpeech
 
         $curl = new Curl();
         $curl->setHeader('Content-Type', 'application/json');
-        $curl->post('https://texttospeech.googleapis.com/v1beta1/text:synthesize?key=AIzaSyCtbG6YZUuElPKh4pEs6M65SZRpWH0BBp4', $data);
+        $curl->post('https://texttospeech.googleapis.com/v1beta1/text:synthesize?key=' . $this->apiGoogleKey, $data);
 
         if ($curl->error) {
             return false;
