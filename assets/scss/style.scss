@@ -43,6 +43,11 @@ body{
   font-weight:bold;
 }
 
+audio{
+  width:100%;
+  background-color:lighten($background-color,10%);
+  border-radius:0px;
+}
 
 /************ Cards ********************/
 
@@ -75,10 +80,6 @@ body{
 /************ Navbar  ******************/
 .navbar-dark{
   background-color: lighten( $background-color, 10% );
-
-  & a {
-    text-decoration: none;
-  }
 }
 
 
