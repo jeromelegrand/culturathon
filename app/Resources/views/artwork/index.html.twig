@@ -1,43 +1,27 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Artworks list</h1>
-
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Characteristics</th>
-                <th>Description</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
+    <div class="text-center">
+        <h1>Oeuvres</h1><a class="btn btn-violet text-right" href="{{ path('artwork_new') }}">Nouvelle Oeuvre</a>
+    </div>
+    <div class="row no-gutters">
         {% for artwork in artworks %}
-            <tr>
-                <td><a href="{{ path('artwork_show', { 'id': artwork.id }) }}">{{ artwork.id }}</a></td>
-                <td>{{ artwork.name }}</td>
-                <td>{{ artwork.characteristics }}</td>
-                <td>{{ artwork.description }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('artwork_show', { 'id': artwork.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('artwork_edit', { 'id': artwork.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
+        <div class="col-xs-8 col-sm-4 col-md-3">
+            <div class="card" >
+                <a href="{{ path('artwork_show', { 'id': artwork.id }) }}" class="link-list">
+                    <div class="image-wrapper">
+                        <img class="card-img-top" src="{{ artwork.pictures[0].url }}" alt="{{ artwork.name }}">
+                    </div>
+                </a>
+                <div class="card-body text-center">
+                    <h5 class="card-title">{{ artwork.name }}</h5>
+                    <a class="btn btn-orange" href="{{ path('artwork_edit', { 'id': artwork.id }) }}">Modifier</a>
+                </div>
+            </div>
+        </div>
         {% endfor %}
-        </tbody>
-    </table>
+    </div>
 
-    <ul>
-        <li>
-            <a href="{{ path('artwork_new') }}">Create a new artwork</a>
-        </li>
-    </ul>
+
+
 {% endblock %}
