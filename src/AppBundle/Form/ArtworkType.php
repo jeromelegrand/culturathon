@@ -27,8 +27,14 @@ class ArtworkType extends AbstractType
             ->add('characteristics', TextareaType::class, [
                 'label' => 'Caractéristiques'
             ])
-            ->add('description', TextareaType::class, [
-                'label' => 'Description de l\'oeuvre'
+            ->add('juniorDescription', TextareaType::class, [
+                'label' => 'Description de l\'oeuvre pour les enfants'
+            ])
+            ->add('standardDescription', TextareaType::class, [
+                'label' => 'Description standard de l\'oeuvre'
+            ])
+            ->add('advancedDescription', TextareaType::class, [
+                'label' => 'Description avancée de l\'oeuvre'
             ])
             ->add('type', TextType::class, [
                 'label' => 'Type d\'oeuvre'

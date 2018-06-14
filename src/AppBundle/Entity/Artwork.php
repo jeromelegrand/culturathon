@@ -42,9 +42,23 @@ class Artwork
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="text", nullable=true)
+     * @ORM\Column(name="junior_description", type="text", nullable=true)
      */
-    private $description;
+    private $juniorDescription;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="standard_description", type="text", nullable=true)
+     */
+    private $standardDescription;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="advanced_description", type="text", nullable=true)
+     */
+    private $advancedDescription;
 
     /**
      * @ORM\ManyToOne(targetEntity="Artist", inversedBy="artworks")
@@ -129,30 +143,6 @@ class Artwork
     public function getCharacteristics()
     {
         return $this->characteristics;
-    }
-
-    /**
-     * Set description
-     *
-     * @param string $description
-     *
-     * @return Artwork
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * Get description
-     *
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->description;
     }
 
     /**
@@ -275,5 +265,77 @@ class Artwork
     public function getPicture()
     {
         return $this->picture;
+    }
+
+    /**
+     * Set juniorDescription
+     *
+     * @param string $juniorDescription
+     *
+     * @return Artwork
+     */
+    public function setJuniorDescription($juniorDescription)
+    {
+        $this->juniorDescription = $juniorDescription;
+
+        return $this;
+    }
+
+    /**
+     * Get juniorDescription
+     *
+     * @return string
+     */
+    public function getJuniorDescription()
+    {
+        return $this->juniorDescription;
+    }
+
+    /**
+     * Set standardDescription
+     *
+     * @param string $standardDescription
+     *
+     * @return Artwork
+     */
+    public function setStandardDescription($standardDescription)
+    {
+        $this->standardDescription = $standardDescription;
+
+        return $this;
+    }
+
+    /**
+     * Get standardDescription
+     *
+     * @return string
+     */
+    public function getStandardDescription()
+    {
+        return $this->standardDescription;
+    }
+
+    /**
+     * Set advancedDescription
+     *
+     * @param string $advancedDescription
+     *
+     * @return Artwork
+     */
+    public function setAdvancedDescription($advancedDescription)
+    {
+        $this->advancedDescription = $advancedDescription;
+
+        return $this;
+    }
+
+    /**
+     * Get advancedDescription
+     *
+     * @return string
+     */
+    public function getAdvancedDescription()
+    {
+        return $this->advancedDescription;
     }
 }
