@@ -2,7 +2,10 @@
 
 {% block body %}
     <div class="row art my-5">
-        <div class="col-md-4 offset-1">
+        <div class="col-md-4">
+            <div class="row d-block d-md-none">
+                <img class ="img-fluid" src="{{ artwork.pictures[0].url }}" alt="{{ artwork.name }}">
+            </div>
             <div class="row">
                 <h1>{{ artwork.name }}</h1>
             </div>
@@ -15,16 +18,30 @@
             <div class="row">
                 <p>{{ artwork.description }}</p>
             </div>
+            <div class="row">
+                <div class="col">
+                    <h2>Détails du musée</h2>
+                    <ul>
+                        <li>Nom de l'exposition</li>
+                        <li>Agenda</li>
+                        <li>Musée</li>
+                        <li>Lien internet</li>
+                    </ul>
+                </div>
+            </div>
+
         </div>
-        <div class="col-md-5 offset-1 ">
+        <div class="col-md-5 offset-1 d-none d-md-block">
             <img class ="img-fluid" src="{{ artwork.pictures[0].url }}" alt="{{ artwork.name }}">
         </div>
     </div>
+
+
     <div class="row">
-        <div class="col-md-3 offset-1">
+        <div class="col-md-3">
             <button type="button" class="btn btn-dark">Précédent</button>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
 
         </div>
         <div class="col-md-3">
