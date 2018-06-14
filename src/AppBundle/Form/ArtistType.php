@@ -25,10 +25,17 @@ class ArtistType extends AbstractType
                 'label' => 'Nom'
             ])
             ->add('dateOfBirth', BirthdayType::class, [
-                'label' => 'Date de naissance'
+                'label' => 'Date de naissance',
+                'widget' => 'single_text',
+                'format' => 'yyyy-MM-dd',
+
+                'required' => false,
             ])
             ->add('dateOfDeath', BirthdayType::class, [
-                'label' => 'Date de décès'
+                'label' => 'Date de décès',
+                'widget' => 'single_text',
+                'format' => 'yyyy-MM-dd',
+                'required' => false,
             ])
             ->add('description', TextareaType::class, [
                 'label' => 'Description'
