@@ -2,8 +2,35 @@
 
 {% block body %}
 
-{% endblock %}
+    {% if is_granted("ROLE_USER") %}
+        <h1 class="text-center mt-5 mb-3">Bienvenue {{ app.user.username }} !</h1>
+        <h2 class="text-center mb-5">Voici vos oeuvres favorites</h2>
 
-{% block stylesheets %}
+        <div class="row no-gutters">
+            {% for artwork in artworks %}
+                <div class="col-xs-8 col-sm-4 col-md-3">
+                    <div class="card" >
+                        <a href="{{ path('artwork_show', { 'id': artwork.id }) }}" class="link-list">
+                            <div class="image-wrapper">
+                                <img class="card-img-top" src="{{ artwork.picture }}" alt="{{ artwork.name }}">
+                            </div>
+                        </a>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">{{ artwork.name }}</h5>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="jumbotron jumbotron-login mt-5">
+            <h1 class="display-4 mb-5 text-center">Bienvenue sur <span class="text-info">Comp'Art</span> !</h1>
+            <div class="text-center">
+                <a class="btn btn-primary btn-lg" href="{{ path('artwork_index') }}">Accédez à la liste de nos oeuvres</a>
+            </div>
+        </div>
+    {% endif %}
+
+
 
 {% endblock %}
