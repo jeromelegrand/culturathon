@@ -34,11 +34,7 @@ security:
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
-
-            # activate different ways to authenticate
-
-            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
-            #http_basic: ~
-
-            # https://symfony.com/doc/current/security/form_login_setup.html
-            #form_login: ~
+        - { path: ^/artwork/$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/artist/$, role: ROLE_USER }
+        - { path: ^/artstyle/$, role: ROLE_USER }
+        - { path: ^/museum/$, role: ROLE_USER }
