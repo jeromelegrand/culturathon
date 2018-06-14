@@ -1,57 +1,48 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="row art my-5">
-        <div class="col-md-4">
-            <div class="row d-block d-md-none">
-                <img class ="img-fluid" src="{{ artwork.pictures[0].url }}" alt="{{ artwork.name }}">
-            </div>
-            <div class="row">
-                <h1>{{ artwork.name }}</h1>
-            </div>
-            <div class="row">
-                <h2>{{ artwork.artist.firstname }} {{ artwork.artist.lastname }}</h2>
-            </div>
-            <div class="row">
-                <p>{{ artwork.characteristics }}</p>
-            </div>
-            <div class="row">
-                <p>{{ artwork.description }}</p>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <h2>Détails du musée</h2>
-                    <ul>
-                        <li>Nom de l'exposition</li>
-                        <li>Agenda</li>
-                        <li>Musée</li>
-                        <li>Lien internet</li>
-                    </ul>
-                </div>
-            </div>
+    <h1>Artwork</h1>
 
-        </div>
-        <div class="col-md-5 offset-1 d-none d-md-block">
-            <img class ="img-fluid" src="{{ artwork.pictures[0].url }}" alt="{{ artwork.name }}">
-        </div>
-    </div>
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ artwork.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ artwork.name }}</td>
+            </tr>
+            <tr>
+                <th>Characteristics</th>
+                <td>{{ artwork.characteristics }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ artwork.description }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ artwork.type }}</td>
+            </tr>
+            <tr>
+                <th>Picture</th>
+                <td>{{ artwork.picture }}</td>
+            </tr>
+        </tbody>
+    </table>
 
-
-    <div class="row">
-        <div class="col-md-3">
-            <button type="button" class="btn btn-dark">Précédent</button>
-        </div>
-        <div class="col-md-6">
-
-        </div>
-        <div class="col-md-3">
-            <button type="button" class="btn btn-dark">Suivant</button>
-        </div>
-    </div>
-    <div class="row my-5">
-        <div class="col">
-            <a href="{{ path('artwork_index') }}">Liste des oeuvres</a>
-        </div>
-    </div>
-
+    <ul>
+        <li>
+            <a href="{{ path('artwork_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('artwork_edit', { 'id': artwork.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
 {% endblock %}
