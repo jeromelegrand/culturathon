@@ -35,15 +35,34 @@
 
                 <p>{{ artwork.characteristics }}</p>
             </div>
-            <div class="row">
-                <p>{{ artwork.juniorDescription }}</p>
+
+
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" href="junior">Junior</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="standard">Amateur</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="avanced">Expert</a>
+                </li>
+            </ul>
+
+            <div id="clothing-nav-content" class="tab-content">
+                <div role="tabpanel" class="tab-pane fade show active" id="junior" aria-labelledby="junior-tab">
+                    <p>{{ artwork.juniorDescription }}</p>
+                </div>
+                <div role="tabpanel" class="tab-pane fade show active" id="standard" aria-labelledby="standard-tab">
+                    <p>{{ artwork.standardDescription }}</p>
+                </div>
+                <div role="tabpanel" class="tab-pane fade show active" id="Avanced" aria-labelledby="avanced-tab">
+                    <p>{{ artwork.advancedDescription }}</p>
+                </div>
             </div>
-            <div class="row">
-                <p>{{ artwork.standardDescription }}</p>
-            </div>
-            <div class="row">
-                <p>{{ artwork.advancedDescription }}</p>
-            </div>
+
             <div class="row">
                 <div class="col">
                     <h2>Détails du musée</h2>
