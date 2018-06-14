@@ -1,21 +1,21 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Museum edit</h1>
+    <div class="text-center">
+        <h1>Modification {{ museum.name }}</h1>
+    </div>
+
+    <div class="text-right">
+        {{ form_start(delete_form) }}
+        <input class=" btn btn-red" type="submit" value="Supprimer">
+        {{ form_end(delete_form) }}
+    </div>
 
     {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
+    {{ form_widget(edit_form) }}
+    <div class="text-center">
+        <input class="btn btn-orange" type="submit" value="Modifier" />
+        <a class="btn btn-green" href="{{ path('museum_index') }}">Retour</a>
+    </div>
     {{ form_end(edit_form) }}
-
-    <ul>
-        <li>
-            <a href="{{ path('museum_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
 {% endblock %}
