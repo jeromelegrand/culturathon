@@ -2,7 +2,7 @@ const Encore = require('@symfony/webpack-encore');
 
 Encore
     .setOutputPath('web/build/')
-    .setPublicPath('/web')
+    .setPublicPath('/build')
     .addEntry('js/app', './assets/js/app.js')
     .addEntry('css/style', './assets/scss/style.scss')
     .cleanupOutputBeforeBuild()
