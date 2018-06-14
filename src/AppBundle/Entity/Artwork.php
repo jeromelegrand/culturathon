@@ -46,6 +46,14 @@ class Artwork
      */
     private $juniorDescription;
 
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="junior_audio", type="text", nullable=true)
+     */
+    private $juniorAudio;
+
     /**
      * @var string
      *
@@ -56,9 +64,23 @@ class Artwork
     /**
      * @var string
      *
+     * @ORM\Column(name="standard_audio", type="text", nullable=true)
+     */
+    private $standardAudio;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="advanced_description", type="text", nullable=true)
      */
     private $advancedDescription;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="advanced_audio", type="text", nullable=true)
+     */
+    private $advancedAudio;
 
     /**
      * @ORM\ManyToOne(targetEntity="Artist", inversedBy="artworks")
@@ -88,7 +110,7 @@ class Artwork
     private $picture;
 
     /**
-     * @ORM\Column(name="favorite", type="boolean")
+     * @ORM\Column(name="favorite", type="boolean", nullable=true)
      */
     private $favorite;
 
@@ -360,5 +382,77 @@ class Artwork
     {
         $this->favorite = $favorite;
         return $this;
+    }
+
+    /**
+     * Set juniorAudio
+     *
+     * @param string $juniorAudio
+     *
+     * @return Artwork
+     */
+    public function setJuniorAudio($juniorAudio)
+    {
+        $this->juniorAudio = $juniorAudio;
+
+        return $this;
+    }
+
+    /**
+     * Get juniorAudio
+     *
+     * @return string
+     */
+    public function getJuniorAudio()
+    {
+        return $this->juniorAudio;
+    }
+
+    /**
+     * Set standardAudio
+     *
+     * @param string $standardAudio
+     *
+     * @return Artwork
+     */
+    public function setStandardAudio($standardAudio)
+    {
+        $this->standardAudio = $standardAudio;
+
+        return $this;
+    }
+
+    /**
+     * Get standardAudio
+     *
+     * @return string
+     */
+    public function getStandardAudio()
+    {
+        return $this->standardAudio;
+    }
+
+    /**
+     * Set advancedAudio
+     *
+     * @param string $advancedAudio
+     *
+     * @return Artwork
+     */
+    public function setAdvancedAudio($advancedAudio)
+    {
+        $this->advancedAudio = $advancedAudio;
+
+        return $this;
+    }
+
+    /**
+     * Get advancedAudio
+     *
+     * @return string
+     */
+    public function getAdvancedAudio()
+    {
+        return $this->advancedAudio;
     }
 }

@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Artwork;
+use AppBundle\Services\TextToSpeech;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
@@ -37,9 +38,11 @@ class ArtworkController extends Controller
      * @Route("/new", name="artwork_new")
      * @Method({"GET", "POST"})
      * @param Request $request
+     * @param TextToSpeech $textToSpeech
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @throws \ErrorException
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request, TextToSpeech $textToSpeech)
     {
         $artwork = new Artwork();
         $form = $this->createForm('AppBundle\Form\ArtworkType', $artwork);
@@ -48,6 +51,34 @@ class ArtworkController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($artwork);
+
+            //génération des fichiers audio
+            if (!in_array($artwork->getJuniorDescription(), ['', null])) {
+                if (!in_array($artwork->getJuniorAudio(), ['', null])) {
+                    unlink('web/audio/files' . $artwork->getJuniorAudio());
+                }
+                $voiceId = uniqid();
+                $textToSpeech->generateAudioFile($artwork->getJuniorDescription(), $voiceId);
+                $artwork->setJuniorAudio($voiceId . '.mp3');
+            }
+            if (!in_array($artwork->getStandardDescription(), ['', null])) {
+                if (!in_array($artwork->getStandardAudio(), ['', null])) {
+                    unlink('web/audio/files' . $artwork->getStandardAudio());
+                }
+                $voiceId = uniqid();
+                $textToSpeech->generateAudioFile($artwork->getStandardDescription(), $voiceId);
+                $artwork->setStandardAudio($voiceId . '.mp3');
+
+            }
+            if (!in_array($artwork->getAdvancedDescription(), ['', null])) {
+                if (!in_array($artwork->getAdvancedAudio(), ['', null])) {
+                    unlink('web/audio/files' . $artwork->getAdvancedAudio());
+                }
+                $voiceId = uniqid();
+                $textToSpeech->generateAudioFile($artwork->getAdvancedDescription(), $voiceId);
+                $artwork->setAdvancedAudio($voiceId . '.mp3');
+            }
+
             $em->flush();
 
             return $this->redirectToRoute('artwork_show', array('id' => $artwork->getId()));
@@ -84,15 +115,46 @@ class ArtworkController extends Controller
      * @Method({"GET", "POST"})
      * @param Request $request
      * @param Artwork $artwork
+     * @param TextToSpeech $textToSpeech
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @throws \ErrorException
      */
-    public function editAction(Request $request, Artwork $artwork)
+    public function editAction(Request $request, Artwork $artwork, TextToSpeech $textToSpeech)
     {
         $deleteForm = $this->createDeleteForm($artwork);
         $editForm = $this->createForm('AppBundle\Form\ArtworkType', $artwork);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+
+            //génération des fichiers audio
+            if (!in_array($artwork->getJuniorDescription(), ['', null])) {
+                if (!in_array($artwork->getJuniorAudio(), ['', null])) {
+                    dump(__DIR__ .'/../../../web/audio/files' . $artwork->getJuniorAudio());
+                    unlink(__DIR__ .'/../../../web/audio/files/' . $artwork->getJuniorAudio());
+                }
+                $voiceId = uniqid();
+                $textToSpeech->generateAudioFile($artwork->getJuniorDescription(), $voiceId);
+                $artwork->setJuniorAudio($voiceId . '.mp3');
+            }
+            if (!in_array($artwork->getStandardDescription(), ['', null])) {
+                if (!in_array($artwork->getStandardAudio(), ['', null])) {
+                    unlink(__DIR__ .'/../../../web/audio/files/' . $artwork->getStandardAudio());
+                }
+                $voiceId = uniqid();
+                $textToSpeech->generateAudioFile($artwork->getStandardDescription(), $voiceId);
+                $artwork->setStandardAudio($voiceId . '.mp3');
+
+            }
+            if (!in_array($artwork->getAdvancedDescription(), ['', null])) {
+                if (!in_array($artwork->getAdvancedAudio(), ['', null])) {
+                    unlink(__DIR__ .'/../../../web/audio/files/' . $artwork->getAdvancedAudio());
+                }
+                $voiceId = uniqid();
+                $textToSpeech->generateAudioFile($artwork->getAdvancedDescription(), $voiceId);
+                $artwork->setAdvancedAudio($voiceId . '.mp3');
+            }
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('artwork_edit', array('id' => $artwork->getId()));
