@@ -13,7 +13,7 @@ use Curl\Curl;
 class TextToSpeech
 {
     /**
-     * Génère un fichier mp3 dans le dossier web/audio à partir de $text
+     * Génère un fichier mp3 dans le dossier web/audio/files à partir de $text et de $fileDestination
      * @param string $text
      * @param string $fileDestination
      * @return bool
