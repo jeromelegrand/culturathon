@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    <div id="text">
+        {{ text }}
+    </div>
+
+    <button class="btn btn-info" onclick='speech("{{ text }}")'>Lire</button>
+{% endblock %}
+
+{% block javascripts%}
+    <script src="{{ asset('build/js/speech.js') }}"></script>
+{% endblock %}
