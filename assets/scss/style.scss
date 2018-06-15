@@ -30,6 +30,10 @@ body{
   background-attachement:fixed;
 }
 
+.container{
+  padding-top:10px;
+}
+
 .form-control, .form-control:focus {
   background-color: lighten( $background-color, 10% );
   border-radius:0px;

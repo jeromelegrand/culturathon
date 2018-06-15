@@ -1,16 +1,18 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="text-center">
+    <div class="text-center blackground">
         <h1>Nouveau Musée</h1>
     </div>
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <div class="text-center">
-            <input class="btn btn-green" type="submit" value="Ajouter" />
-            <a class="btn btn-blue" href="{{ path('museum_index') }}">Retour</a>
-        </div>
-    {{ form_end(form) }}
+    <div class="blackground mt-3">
+        {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <div class="text-center">
+                <input class="btn btn-green" type="submit" value="Ajouter" />
+                <a class="btn btn-blue" href="{{ path('museum_index') }}">Retour</a>
+            </div>
+        {{ form_end(form) }}
+    </div>
 
 {% endblock %}
