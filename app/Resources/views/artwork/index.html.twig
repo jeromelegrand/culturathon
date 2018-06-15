@@ -11,7 +11,7 @@
     <div class="row no-gutters">
         {% for artwork in artworks %}
         <div class="col-xs-8 col-sm-4 col-md-3">
-            <div class="card blackground blackground-card" >
+            <div class="card blackground blackground-card card-artwork" >
                 <a href="{{ path('artwork_show', { 'id': artwork.id }) }}">
                     <div class="cadre">
                         <div class="link-list" >
@@ -23,9 +23,11 @@
                 </a>
                 <div class="card-body text-center">
                     <h5 class="card-title">{{ artwork.name }}</h5>
+                    <div class="btn-place text-center">
                     {% if is_granted("ROLE_ADMIN") %}
-                        <a class="btn btn-orange" href="{{ path('artwork_edit', { 'id': artwork.id }) }}">Modifier</a>
+                        <a class="btn btn-orange place-btn" href="{{ path('artwork_edit', { 'id': artwork.id }) }}">Modifier</a>
                     {% endif %}
+                    </div>
                 </div>
             </div>
         </div>

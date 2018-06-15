@@ -62,8 +62,6 @@ body{
   .c-letter, .m-letter, .p-letter, .r-letter, .t-letter {
     color: $blue;
   }
-
-
 }
 
 .apostrophe {
@@ -108,6 +106,10 @@ audio{
 .card{
   border-radius:0px;
   margin:5px;
+}
+
+.card-artwork{
+  height: 450px;
 }
 
 .card-img-top{
@@ -256,6 +258,15 @@ audio{
   width: 100px;
 }
 
+.btn-place {
+  position: absolute;
+  bottom: 10px;
+  margin-left: 25%;
+}
+
+.card-body {
+  position: relative;
+}
 .row {
   margin: 0;
 }
