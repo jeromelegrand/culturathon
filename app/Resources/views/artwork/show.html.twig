@@ -49,15 +49,17 @@
             </div>
 
 
-            <div class="row mb-3 mt-3 blackground justify-content-center">
-                {% if is_granted("ROLE_USER") %}
+
+            {% if is_granted("ROLE_USER") %}
+                <div class="row mb-3 mt-3 blackground justify-content-center">
                     {% if artwork.favorite == false %}
                         <a href="{{ path('artwork_favorite', {id: artwork.id}) }}"><i class="fa fa-heart-o favorite" aria-hidden="true"></i></a>
                     {% else %}
                         <a href="{{ path('artwork_favorite', {id: artwork.id}) }}"><i class="fa fa-heart favorite" aria-hidden="true"></i></a>
                     {% endif %}
-                {% endif %}
-            </div>
+                </div>
+            {% endif %}
+
 
             <div class="row mb-3 blackground">
                 <div>
