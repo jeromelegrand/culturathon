@@ -96,7 +96,7 @@
             </div>
         </div>
         <div class="col-md-6 d-none d-md-block img-rotate">
-            <img class="img-fluid" src="{{ artwork.picture }}" alt="{{ artwork.name }}">
+            <img class="img-fluid cursor" src="{{ artwork.picture }}" alt="{{ artwork.name }}" onclick="openModal();">
             <div class="blackground mt-3">
                 <div class="row">
                     <div class="col">
@@ -121,4 +121,25 @@
             </div>
          </div>
      </div>
+
+    <div id="myModal" class="modal">
+        <span class="close-btn cursor" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+            <div class="mySlides">
+                <img src="{{ artwork.picture }}" style="width:100%">
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        function openModal() {
+            document.getElementById('myModal').style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById('myModal').style.display = "none";
+        }
+    </script>
 {% endblock %}
