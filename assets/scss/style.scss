@@ -24,6 +24,10 @@ body{
   background-color: $background-color;
   color : $text-color;
   font-family: Nanum Gothic;
+  background-image: url('web/images/castle-1998435_1920-black.jpg');
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-attachement:fixed;
 }
 
 .form-control, .form-control:focus {
@@ -49,10 +53,18 @@ audio{
   border-radius:0px;
 }
 
+.blackground {
+  background-color:rgba(0, 0, 0, 0.8);
+  padding:10px;
+}
+
+.blackground-card {
+  padding:0px;
+}
+
 /************ Cards ********************/
 
 .card{
-  background-color: $background-color;
   border-radius:0px;
   margin:5px;
 }
