@@ -95,8 +95,8 @@ audio{
 }
 
 .blackground {
-  background-color:rgba(0, 0, 0, 0.8);
-  padding:10px;
+  background-color:rgba(20, 20, 20, 0.9);
+  padding:15px;
 }
 
 .blackground-card {
@@ -133,8 +133,8 @@ audio{
 .cadre {
   border-top: 15px solid darken(darkgrey, 50%);
   border-left: 15px solid darken(darkgrey, 50%);
-  border-right: 15px solid black;
-  border-bottom: 15px solid black;
+  border-right: 15px solid #000000;
+  border-bottom: 15px solid #000000;
 }
 
 .card-title {

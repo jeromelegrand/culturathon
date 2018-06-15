@@ -23,19 +23,24 @@ class ArtworkType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-                'label' => 'Nom de l\'oeuvre'
+                'label' => 'Nom de l\'oeuvre',
+                'attr' => ['class' => 'mb-4'],
             ])
             ->add('characteristics', TextareaType::class, [
-                'label' => 'Caractéristiques'
+                'label' => 'Caractéristiques',
+                'attr' => ['class' => 'mb-4'],
             ])
             ->add('juniorDescription', TextareaType::class, [
-                'label' => 'Description de l\'oeuvre pour les enfants'
+                'label' => 'Description de l\'oeuvre pour les enfants',
+                'attr' => ['class' => 'mb-4'],
             ])
             ->add('standardDescription', TextareaType::class, [
-                'label' => 'Description standard de l\'oeuvre'
+                'label' => 'Description standard de l\'oeuvre',
+                'attr' => ['class' => 'mb-4'],
             ])
             ->add('advancedDescription', TextareaType::class, [
-                'label' => 'Description avancée de l\'oeuvre'
+                'label' => 'Description avancée de l\'oeuvre',
+                'attr' => ['class' => 'mb-4'],
             ])
             ->add('type', ChoiceType::class, [
                 'label' => 'Type d\'oeuvre',
@@ -44,23 +49,28 @@ class ArtworkType extends AbstractType
                     'Peinture' => 'Peinture',
                     'Musique' => 'Musique',
                     'Sculpture' => 'Sculpture',
-                    'Littérature' => 'Littérature'
+                    'Littérature' => 'Littérature',
+                    'attr' => ['class' => 'mb-4'],
                 ]
             ])
             ->add('picture', TextareaType::class, [
-                'label' => 'Lien vers l\'illustration de l\'oeuvre'
+                'label' => 'Lien vers l\'illustration de l\'oeuvre',
+                'attr' => ['class' => 'mb-4'],
             ])
             ->add('artist', EntityType::class, [
                 'class' => Artist::class,
-                'label' => 'Artiste'
+                'label' => 'Artiste',
+                'attr' => ['class' => 'mb-4'],
             ])
             ->add('museum', EntityType::class, [
                 'class' => Museum::class,
-                'label' => 'Lieu d\'exposition'
+                'label' => 'Lieu d\'exposition',
+                'attr' => ['class' => 'mb-4'],
             ])
             ->add('artStyle', EntityType::class, [
                 'class' => ArtStyle::class,
-                'label' => 'Style de l\'oeuvre'
+                'label' => 'Style de l\'oeuvre',
+                'attr' => ['class' => 'mb-4'],
             ])
         ;
     }
