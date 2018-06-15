@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-    <div class="text-center background-img">
+    <div class="text-center">
         <h1>Oeuvres</h1>
         {% if is_granted("ROLE_ADMIN") %}
             <a class="btn btn-violet text-right" href="{{ path('artwork_new') }}">Nouvelle Oeuvre</a>
