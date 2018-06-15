@@ -12,7 +12,7 @@
                     <h1>{{ artwork.name }}</h1>
                 </div>
                 <div class="row">
-                    <h2>{{ artwork.artist.firstname }} {{ artwork.artist.lastname }}</h2>
+                    <h2><a href="{{ path('artist_show', { "id": artwork.artist.id }) }}">{{ artwork.artist.firstname }} {{ artwork.artist.lastname }}</a></h2>
                 </div>
                 <div class="row">
                     {% if artwork.type == "Photographie" %}
