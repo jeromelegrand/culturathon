@@ -1,8 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="text-center">
-        <h1>Artistes</h1><a class="btn btn-violet text-right" href="{{ path('artist_new') }}">Nouvel Artiste</a>
+    <div class="text-center my-5">
+        <h1 class="mb-3">Artistes</h1>
+        <a class="btn btn-violet text-right" href="{{ path('artist_new') }}">Nouvel Artiste</a>
     </div>
     <div class="row no-gutters">
         {% for artist in artists %}
