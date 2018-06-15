@@ -68,7 +68,6 @@ body{
   color:$violet;
 }
 
-
 .form-control, .form-control:focus {
   background-color: lighten( $background-color, 10% );
   border-radius:0px;
@@ -103,7 +102,7 @@ audio{
 
 /************ Cards ********************/
 
-.card{
+.card {
   border-radius:0px;
   margin:5px;
 }
@@ -115,14 +114,13 @@ audio{
 .card-img-top{
   height:250px;
   object-fit: cover;
-
 }
-.link-list{
+
+.link-list {
   border:15px solid #FFF;
 }
 
-.image-wrapper::after
-{
+.image-wrapper::after {
   box-shadow: inset 3px 3px 10px 0 #000000;
   content: '';
   display: block;

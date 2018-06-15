@@ -34,33 +34,9 @@ class ArtworkFixtures extends Fixture  implements DependentFixtureInterface
      */
     public function load(ObjectManager $manager)
     {
-        $artwork = new Artwork();
-        $artwork->setName('New York City Vertighorizon');
-        $artwork->setCharacteristics('160x106cm Photographie sur aluminium');
-        $artwork->setArtist($this->getReference('artist-4'));
 
-        $artwork->setMuseum($this->getReference('museum-1'));
-        $artwork->setArtStyle($this->getReference('style-2'));
-        $artwork->setType('Photographie');
-        $artwork->setPicture('/images/manolo.jpg');
 
-        $artwork->setJuniorDescription('La photographie représente la ville de New York aux Etats Unis avec des effets verticaux et horizontaux.');
-        $voiceId = uniqid();
-        $this->textToSpeech->generateAudioFile($artwork->getJuniorDescription(), $voiceId);
-        $artwork->setJuniorAudio($voiceId . '.mp3');
-
-        $artwork->setStandardDescription('La photographie représente beauté de la ville de New York et ses différentes couleurs par des effets verticaux et horizontaux. La photographie est présentée sur aluminium afin de garder le coté métallique de la ville.');
-        $voiceId = uniqid();
-        $this->textToSpeech->generateAudioFile($artwork->getStandardDescription(), $voiceId);
-        $artwork->setStandardAudio($voiceId . '.mp3');
-
-        $artwork->setAdvancedDescription('Manolo Chrétien est un photographe plasticien. Fils de pilote ayant grandi près de la base aérienne à Orange, il se fascine très jeune, pour l\'aéronautique, et ces fantastiques machines crées pour accélérer le temps. Avions, voitures et fusées sont les symboles d\'un monde en mouvement qui repousse toutes les frontières. Manolo Chrétien en capture la beauté magique pour l’imprimer sur aluminium. Ses ‘alluminations’ sont le miroir de l\'ambition humaine. 
-L’artiste a prolongé sa recherche photographique sur la fluidité et les reflets en investiguant la dynamique des vagues et des flux aquatiques. Au travers son regard, l’océan devient une onde métallique, une mécanique naturelle. Manolo Chrétien vit et travaille en France.
-');
-        $voiceId = uniqid();
-        $this->textToSpeech->generateAudioFile($artwork->getAdvancedDescription(), $voiceId);
-        $artwork->setAdvancedAudio($voiceId . '.mp3');
-
+        //1ère oeuvre
         $artwork = new Artwork();
         $artwork->setName('New York City Vertighorizon');
         $artwork->setCharacteristics('160x106cm Photographie sur aluminium');
@@ -90,6 +66,7 @@ L’artiste a prolongé sa recherche photographique sur la fluidité et les refl
 
         $manager->persist($artwork);
 
+        //2ème oeuvre
         $artwork = new Artwork();
         $artwork->setName('Lueur de Loire');
         $artwork->setCharacteristics('80x80cm, Techniques mixtes, Peinture sur toile');
@@ -120,6 +97,7 @@ En parallèle de leur activité de design, Manolo et Pia ont également un ateli
 
         $manager->persist($artwork);
 
+        //3ème oeuvre
         $artwork = new Artwork();
         $artwork->setName('Cable Car');
         $artwork->setCharacteristics('130.97 cm,
@@ -146,6 +124,142 @@ French Art Studio – Londre en Angleterre.
 
 En parallèle de leur activité de design, Manolo et Pia ont également un atelier dans lequel ils peignent à quatre mains. Ils réalisent des oeuvres à l\'acrylique sur toile représentant principalement des paysages aux tons chauds et automnaux dans un style figuratif et stylisé.
 ');
+        $voiceId = uniqid();
+        $this->textToSpeech->generateAudioFile($artwork->getAdvancedDescription(), $voiceId);
+        $artwork->setAdvancedAudio($voiceId . '.mp3');
+
+        $manager->persist($artwork);
+
+
+        //4ème oeuvre
+        $artwork = new Artwork();
+        $artwork->setName('Le Corrège');
+        $artwork->setArtist($this->getReference('artist-6'));
+
+        $artwork->setMuseum($this->getReference('museum-2'));
+        $artwork->setArtStyle($this->getReference('style-2'));
+        $artwork->setType('Peinture');
+        $artwork->setPicture('/images/image1.jpg');
+
+        $artwork->setJuniorDescription('description junior');
+        $voiceId = uniqid();
+        $this->textToSpeech->generateAudioFile($artwork->getJuniorDescription(), $voiceId);
+        $artwork->setJuniorAudio($voiceId . '.mp3');
+
+        $artwork->setStandardDescription('description standard');
+        $voiceId = uniqid();
+        $this->textToSpeech->generateAudioFile($artwork->getStandardDescription(), $voiceId);
+        $artwork->setStandardAudio($voiceId . '.mp3');
+
+        $artwork->setAdvancedDescription('description avancée');
+        $voiceId = uniqid();
+        $this->textToSpeech->generateAudioFile($artwork->getAdvancedDescription(), $voiceId);
+        $artwork->setAdvancedAudio($voiceId . '.mp3');
+
+        $manager->persist($artwork);
+
+        //5ème oeuvre
+        $artwork = new Artwork();
+        $artwork->setName('Campagne d\'Egypte');
+        $artwork->setArtist($this->getReference('artist-6'));
+
+        $artwork->setMuseum($this->getReference('museum-2'));
+        $artwork->setArtStyle($this->getReference('style-2'));
+        $artwork->setType('Peinture');
+        $artwork->setPicture('/images/image2.jpg');
+
+        $artwork->setJuniorDescription('description junior');
+        $voiceId = uniqid();
+        $this->textToSpeech->generateAudioFile($artwork->getJuniorDescription(), $voiceId);
+        $artwork->setJuniorAudio($voiceId . '.mp3');
+
+        $artwork->setStandardDescription('description standard');
+        $voiceId = uniqid();
+        $this->textToSpeech->generateAudioFile($artwork->getStandardDescription(), $voiceId);
+        $artwork->setStandardAudio($voiceId . '.mp3');
+
+        $artwork->setAdvancedDescription('description avancée');
+        $voiceId = uniqid();
+        $this->textToSpeech->generateAudioFile($artwork->getAdvancedDescription(), $voiceId);
+        $artwork->setAdvancedAudio($voiceId . '.mp3');
+
+        $manager->persist($artwork);
+
+        //6ème oeuvre
+        $artwork = new Artwork();
+        $artwork->setName('Brueghel');
+        $artwork->setArtist($this->getReference('artist-6'));
+
+        $artwork->setMuseum($this->getReference('museum-2'));
+        $artwork->setArtStyle($this->getReference('style-2'));
+        $artwork->setType('Peinture');
+        $artwork->setPicture('/images/image3.jpg');
+
+        $artwork->setJuniorDescription('description junior');
+        $voiceId = uniqid();
+        $this->textToSpeech->generateAudioFile($artwork->getJuniorDescription(), $voiceId);
+        $artwork->setJuniorAudio($voiceId . '.mp3');
+
+        $artwork->setStandardDescription('description standard');
+        $voiceId = uniqid();
+        $this->textToSpeech->generateAudioFile($artwork->getStandardDescription(), $voiceId);
+        $artwork->setStandardAudio($voiceId . '.mp3');
+
+        $artwork->setAdvancedDescription('description avancée');
+        $voiceId = uniqid();
+        $this->textToSpeech->generateAudioFile($artwork->getAdvancedDescription(), $voiceId);
+        $artwork->setAdvancedAudio($voiceId . '.mp3');
+
+        $manager->persist($artwork);
+
+        //7ème oeuvre
+        $artwork = new Artwork();
+        $artwork->setName('Le Penseur');
+        $artwork->setArtist($this->getReference('artist-6'));
+
+        $artwork->setMuseum($this->getReference('museum-2'));
+        $artwork->setArtStyle($this->getReference('style-2'));
+        $artwork->setType('Peinture');
+        $artwork->setPicture('/images/image4.jpg');
+
+        $artwork->setJuniorDescription('description junior');
+        $voiceId = uniqid();
+        $this->textToSpeech->generateAudioFile($artwork->getJuniorDescription(), $voiceId);
+        $artwork->setJuniorAudio($voiceId . '.mp3');
+
+        $artwork->setStandardDescription('description standard');
+        $voiceId = uniqid();
+        $this->textToSpeech->generateAudioFile($artwork->getStandardDescription(), $voiceId);
+        $artwork->setStandardAudio($voiceId . '.mp3');
+
+        $artwork->setAdvancedDescription('description avancée');
+        $voiceId = uniqid();
+        $this->textToSpeech->generateAudioFile($artwork->getAdvancedDescription(), $voiceId);
+        $artwork->setAdvancedAudio($voiceId . '.mp3');
+
+        $manager->persist($artwork);
+
+        //8ème oeuvre
+        $artwork = new Artwork();
+        $artwork->setName('La Joconde');
+        $artwork->setArtist($this->getReference('artist-6'));
+
+        $artwork->setMuseum($this->getReference('museum-2'));
+        $artwork->setArtStyle($this->getReference('style-2'));
+        $artwork->setType('Peinture');
+        $artwork->setPicture('/images/image5.jpg');
+
+        $artwork->setJuniorDescription('description junior');
+        $voiceId = uniqid();
+        $this->textToSpeech->generateAudioFile($artwork->getJuniorDescription(), $voiceId);
+        $artwork->setJuniorAudio($voiceId . '.mp3');
+
+        $artwork->setStandardDescription('description standard');
+        $voiceId = uniqid();
+        $this->textToSpeech->generateAudioFile($artwork->getStandardDescription(), $voiceId);
+        $artwork->setStandardAudio($voiceId . '.mp3');
+
+        $artwork->setAdvancedDescription('description avancée');
         $voiceId = uniqid();
         $this->textToSpeech->generateAudioFile($artwork->getAdvancedDescription(), $voiceId);
         $artwork->setAdvancedAudio($voiceId . '.mp3');
