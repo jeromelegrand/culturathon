@@ -133,13 +133,121 @@ En parallèle de leur activité de design, Manolo et Pia ont également un ateli
 
         //4ème oeuvre
         $artwork = new Artwork();
-        $artwork->setName('Cable Car 2');
+        $artwork->setName('Le Corrège');
         $artwork->setArtist($this->getReference('artist-6'));
 
         $artwork->setMuseum($this->getReference('museum-2'));
         $artwork->setArtStyle($this->getReference('style-2'));
         $artwork->setType('Peinture');
-        $artwork->setPicture('/images/cable-car.jpeg');
+        $artwork->setPicture('/images/image1.jpeg');
+
+        $artwork->setJuniorDescription('description junior');
+        $voiceId = uniqid();
+        $this->textToSpeech->generateAudioFile($artwork->getJuniorDescription(), $voiceId);
+        $artwork->setJuniorAudio($voiceId . '.mp3');
+
+        $artwork->setStandardDescription('description standard');
+        $voiceId = uniqid();
+        $this->textToSpeech->generateAudioFile($artwork->getStandardDescription(), $voiceId);
+        $artwork->setStandardAudio($voiceId . '.mp3');
+
+        $artwork->setAdvancedDescription('description avancée');
+        $voiceId = uniqid();
+        $this->textToSpeech->generateAudioFile($artwork->getAdvancedDescription(), $voiceId);
+        $artwork->setAdvancedAudio($voiceId . '.mp3');
+
+        $manager->persist($artwork);
+
+        //5ème oeuvre
+        $artwork = new Artwork();
+        $artwork->setName('Campagne d\'Egypte');
+        $artwork->setArtist($this->getReference('artist-6'));
+
+        $artwork->setMuseum($this->getReference('museum-2'));
+        $artwork->setArtStyle($this->getReference('style-2'));
+        $artwork->setType('Peinture');
+        $artwork->setPicture('/images/image2.jpeg');
+
+        $artwork->setJuniorDescription('description junior');
+        $voiceId = uniqid();
+        $this->textToSpeech->generateAudioFile($artwork->getJuniorDescription(), $voiceId);
+        $artwork->setJuniorAudio($voiceId . '.mp3');
+
+        $artwork->setStandardDescription('description standard');
+        $voiceId = uniqid();
+        $this->textToSpeech->generateAudioFile($artwork->getStandardDescription(), $voiceId);
+        $artwork->setStandardAudio($voiceId . '.mp3');
+
+        $artwork->setAdvancedDescription('description avancée');
+        $voiceId = uniqid();
+        $this->textToSpeech->generateAudioFile($artwork->getAdvancedDescription(), $voiceId);
+        $artwork->setAdvancedAudio($voiceId . '.mp3');
+
+        $manager->persist($artwork);
+
+        //6ème oeuvre
+        $artwork = new Artwork();
+        $artwork->setName('Brueghel');
+        $artwork->setArtist($this->getReference('artist-6'));
+
+        $artwork->setMuseum($this->getReference('museum-2'));
+        $artwork->setArtStyle($this->getReference('style-2'));
+        $artwork->setType('Peinture');
+        $artwork->setPicture('/images/image3.jpeg');
+
+        $artwork->setJuniorDescription('description junior');
+        $voiceId = uniqid();
+        $this->textToSpeech->generateAudioFile($artwork->getJuniorDescription(), $voiceId);
+        $artwork->setJuniorAudio($voiceId . '.mp3');
+
+        $artwork->setStandardDescription('description standard');
+        $voiceId = uniqid();
+        $this->textToSpeech->generateAudioFile($artwork->getStandardDescription(), $voiceId);
+        $artwork->setStandardAudio($voiceId . '.mp3');
+
+        $artwork->setAdvancedDescription('description avancée');
+        $voiceId = uniqid();
+        $this->textToSpeech->generateAudioFile($artwork->getAdvancedDescription(), $voiceId);
+        $artwork->setAdvancedAudio($voiceId . '.mp3');
+
+        $manager->persist($artwork);
+
+        //7ème oeuvre
+        $artwork = new Artwork();
+        $artwork->setName('Le Penseur');
+        $artwork->setArtist($this->getReference('artist-6'));
+
+        $artwork->setMuseum($this->getReference('museum-2'));
+        $artwork->setArtStyle($this->getReference('style-2'));
+        $artwork->setType('Peinture');
+        $artwork->setPicture('/images/image4.jpeg');
+
+        $artwork->setJuniorDescription('description junior');
+        $voiceId = uniqid();
+        $this->textToSpeech->generateAudioFile($artwork->getJuniorDescription(), $voiceId);
+        $artwork->setJuniorAudio($voiceId . '.mp3');
+
+        $artwork->setStandardDescription('description standard');
+        $voiceId = uniqid();
+        $this->textToSpeech->generateAudioFile($artwork->getStandardDescription(), $voiceId);
+        $artwork->setStandardAudio($voiceId . '.mp3');
+
+        $artwork->setAdvancedDescription('description avancée');
+        $voiceId = uniqid();
+        $this->textToSpeech->generateAudioFile($artwork->getAdvancedDescription(), $voiceId);
+        $artwork->setAdvancedAudio($voiceId . '.mp3');
+
+        $manager->persist($artwork);
+
+        //8ème oeuvre
+        $artwork = new Artwork();
+        $artwork->setName('La Joconde');
+        $artwork->setArtist($this->getReference('artist-6'));
+
+        $artwork->setMuseum($this->getReference('museum-2'));
+        $artwork->setArtStyle($this->getReference('style-2'));
+        $artwork->setType('Peinture');
+        $artwork->setPicture('/images/image5.jpeg');
 
         $artwork->setJuniorDescription('description junior');
         $voiceId = uniqid();
