@@ -33,6 +33,13 @@ body{
 .container{
   padding-top:10px;
 }
+.artist {
+  color: $text-color;
+  &:hover {
+    cursor: pointer;
+    color: darken($text-color, 30%);
+  }
+}
 
 .name {
   a:link {
@@ -246,7 +253,7 @@ audio{
     border-bottom: 1px solid darken($text-color, 50%);
     margin-top: 20px;
     span {
-      color: darken($text-color, 50%);
+      color: $text-color;
     }
   }
 

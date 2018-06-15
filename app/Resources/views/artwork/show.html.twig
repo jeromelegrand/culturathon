@@ -7,12 +7,12 @@
                 <img class ="img-fluid" src="{{ artwork.picture }}" alt="{{ artwork.name }}">
             </div>
 
-            <div class="blackground">
+            <div class="blackground p-3">
                 <div class="row">
                     <h1>{{ artwork.name }}</h1>
                 </div>
                 <div class="row">
-                    <h2><a href="{{ path('artist_show', { "id": artwork.artist.id }) }}">{{ artwork.artist.firstname }} {{ artwork.artist.lastname }}</a></h2>
+                    <h2 class="pb-2"><a href="{{ path('artist_show', { "id": artwork.artist.id }) }}" class="artist">{{ artwork.artist.firstname }} {{ artwork.artist.lastname }}</a></h2>
                 </div>
                 <div class="row">
                     {% if artwork.type == "Photographie" %}
@@ -48,8 +48,6 @@
                 </div>
             </div>
 
-
-
             {% if is_granted("ROLE_USER") %}
                 <div class="row mb-3 mt-3 blackground justify-content-center">
                     {% if artwork.favorite == false %}
@@ -61,14 +59,14 @@
             {% endif %}
 
 
-            <div class="row mb-3 blackground">
+            <div class="row mb-3 p-3 blackground">
                 <div>
-                    <h5>Caractéristiques</h5>
+                    <h3>Caractéristiques</h3>
                 </div>
                 <div class="col-12">{{ artwork.characteristics }}</div>
             </div>
-            <div class="blackground">
-                <ul class="nav nav-tabs d-flex justify-content-center" id="myTab" role="tablist">
+            <div class="blackground pt-3">
+                <ul class="nav nav-tabs d-flex justify-content-center mb-3" id="myTab" role="tablist">
                     <li class="nav-item">
                         <a class="nav-link {% if app.user.level is defined and app.user.level == 'junior' %}active{% endif %}" id="home-tab" data-toggle="tab" href="#junior" role="tab" aria-controls="home" aria-selected="true">Junior</a>
                     </li>
@@ -82,15 +80,15 @@
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade {% if app.user.level is defined and app.user.level == 'junior' %} show active{% endif %} col-12" id="junior" role="tabpanel" aria-labelledby="home-tab">
                         <audio src="/audio/files/{{ artwork.juniorAudio }}" controls type="audio/mp3"></audio>
-                        <p>{{ artwork.juniorDescription }}</p>
+                        <p class="mt-3 text-justify">{{ artwork.juniorDescription }}</p>
                     </div>
                     <div class="tab-pane fade {% if app.user.level is not defined or app.user.level not in ['junior', 'advanced'] %}show active{% endif %} col-12" id="amateur" role="tabpanel" aria-labelledby="profile-tab">
                         <audio src="/audio/files/{{ artwork.standardAudio }}" controls type="audio/mp3"></audio>
-                        <p>{{ artwork.standardDescription }}</p>
+                        <p class="mt-3 text-justify">{{ artwork.standardDescription }}</p>
                     </div>
                     <div class="tab-pane fade {% if app.user.level is defined and app.user.level == 'advanced' %}show active{% endif %} col-12" id="expert" role="tabpanel" aria-labelledby="contact-tab">
                         <audio src="/audio/files/{{ artwork.advancedAudio }}" controls type="audio/mp3"></audio>
-                        <p>{{ artwork.advancedDescription }}</p>
+                        <p class="mt-3 text-justify">{{ artwork.advancedDescription }}</p>
                     </div>
                 </div>
             </div>
@@ -100,19 +98,17 @@
             <div class="blackground mt-3">
                 <div class="row">
                     <div class="col">
-                        <h2>Exposition:</h2>
-                        <ul class="museum">
+                        <h3 class="pt-3">Exposition</h3>
+                        <ul class="museum pl-1">
                             <li>
                                 <p>
-                                    <i class="fa fa-university" aria-hidden="true"></i>
-                                    <span>{{ artwork.museum.name }}</span>
+                                    <i class="fa fa-university pr-2" aria-hidden="true"></i><span class="text-c">{{ artwork.museum.name }}</span>
                                 </p>
                             </li>
 
                             <li>
                                 <p>
-                                    <i class="fa fa-car" aria-hidden="true"></i>
-                                   <span>{{ artwork.museum.city }}</span>
+                                    <i class="fa fa-car pr-2" aria-hidden="true"></i><span>{{ artwork.museum.city }}</span>
                                 </p>
                             </li>
                          </ul>
