@@ -1,42 +1,42 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="text-center blackground">
+    <div class="text-center blackground mb-3">
         <h1>Nouvel Artiste</h1>
     </div>
 
-<div class="blackground">
-    {{ form_start(form) }}
+    <div class="blackground">
+        {{ form_start(form) }}
 
-    {{ form_label(form.firstname) }}
-    {{ form_widget(form.firstname) }}
-    {{ form_errors(form.firstname) }}
+            {{ form_label(form.firstname) }}
+            {{ form_widget(form.firstname) }}
+            {{ form_errors(form.firstname) }}
 
-    {{ form_label(form.lastname) }}
-    {{ form_widget(form.lastname) }}
-    {{ form_errors(form.lastname) }}
+            {{ form_label(form.lastname) }}
+            {{ form_widget(form.lastname) }}
+            {{ form_errors(form.lastname) }}
 
 
-    <div>
-        {{ form_label(form.dateOfBirth) }}
-        {{ form_widget(form.dateOfBirth) }}
-        {{ form_errors(form.dateOfBirth) }}
+            <div>
+                {{ form_label(form.dateOfBirth) }}
+                {{ form_widget(form.dateOfBirth) }}
+                {{ form_errors(form.dateOfBirth) }}
 
-        {{ form_label(form.dateOfDeath) }}
-        {{ form_widget(form.dateOfDeath) }}
-        {{ form_errors(form.dateOfDeath) }}
+                {{ form_label(form.dateOfDeath) }}
+                {{ form_widget(form.dateOfDeath) }}
+                {{ form_errors(form.dateOfDeath) }}
+            </div>
+
+
+            {{ form_label(form.description) }}
+            {{ form_widget(form.description) }}
+            {{ form_errors(form.description) }}
+
+            <div class="text-center mt-3">
+                <input class="btn btn-blue" type="submit" value="Ajouter" />
+                <a class="btn btn-green" href="{{ path('artist_index') }}">Retour</a>
+            </div>
+        {{ form_end(form) }}
     </div>
-
-
-    {{ form_label(form.description) }}
-    {{ form_widget(form.description) }}
-    {{ form_errors(form.description) }}
-
-    <div class="text-center">
-        <input class="btn btn-blue" type="submit" value="Ajouter" />
-        <a class="btn btn-green" href="{{ path('artist_index') }}">Retour</a>
-    </div>
-    {{ form_end(form) }}
-</div>
 
 {% endblock %}

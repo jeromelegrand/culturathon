@@ -19,26 +19,30 @@ class ArtistType extends AbstractType
     {
         $builder
             ->add('firstname', TextType::class, [
-                'label' => 'Prénom'
+                'label' => 'Prénom',
+                'attr' => ['class' => 'mb-4'],
             ])
             ->add('lastname', TextType::class, [
-                'label' => 'Nom'
+                'label' => 'Nom',
+                'attr' => ['class' => 'mb-4'],
             ])
             ->add('dateOfBirth', BirthdayType::class, [
                 'label' => 'Date de naissance',
                 'widget' => 'single_text',
                 'format' => 'yyyy-MM-dd',
-
                 'required' => false,
+                'attr' => ['class' => 'mb-4'],
             ])
             ->add('dateOfDeath', BirthdayType::class, [
                 'label' => 'Date de décès',
                 'widget' => 'single_text',
                 'format' => 'yyyy-MM-dd',
                 'required' => false,
+                'attr' => ['class' => 'mb-4'],
             ])
             ->add('description', TextareaType::class, [
-                'label' => 'Description'
+                'label' => 'Description',
+                'attr' => ['class' => 'mb-4'],
             ])
         ;
     }

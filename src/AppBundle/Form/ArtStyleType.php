@@ -17,7 +17,8 @@ class ArtStyleType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-                'label' => 'Style de l\'oeuvre'
+                'label' => 'Style de l\'oeuvre',
+                'attr' => ['class' => 'mb-4'],
             ])
         ;
     }
