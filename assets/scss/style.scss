@@ -42,15 +42,18 @@ body{
 }
 
 .name {
+  a:link {
+    text-decoration: none;
+  }
 
-  .c-letter {
+  .o-letter {
     color: $turquoise;
   }
   .a-letter {
     color: $orange;
   }
-  .o-letter .m-letter .p-letter .r-letter .t-letter {
-
+  .c-letter, .m-letter, .p-letter, .r-letter, .t-letter {
+    color: $blue;
   }
 }
 
