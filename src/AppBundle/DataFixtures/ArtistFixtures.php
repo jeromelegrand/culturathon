@@ -54,6 +54,9 @@ class ArtistFixtures extends Fixture
         $artist = new Artist();
         $artist->setLastname('Chrétien');
         $artist->setFirstname('Manolo');
+        $artist->setDescription('Manolo Chrétien est un photographe plasticien. Fils de pilote ayant grandi près de la base aérienne à Orange, il se fascine très jeune, pour l\'aéronautique, et ces fantastiques machines crées pour accélérer le temps. Avions, voitures et fusées sont les symboles d\'un monde en mouvement qui repousse toutes les frontières. Manolo Chrétien en capture la beauté magique pour l’imprimer sur aluminium. Ses ‘alluminations’ sont le miroir de l\'ambition humaine. 
+L’artiste a prolongé sa recherche photographique sur la fluidité et les reflets en investiguant la dynamique des vagues et des flux aquatiques. Au travers son regard, l’océan devient une onde métallique, une mécanique naturelle. Manolo Chrétien vit et travaille en France.
+');
         $manager->persist($artist);
         $this->addReference('artist-4', $artist);
 
@@ -67,6 +70,10 @@ class ArtistFixtures extends Fixture
 
         $artist = new Artist();
         $artist->setLastname('Man&Pia');
+        $artist->setDescription('Man&Pia est un duo d\'artistes formé par Manolo Chétien et Pia Loro, qui se sont rencontrés en 1987 aux Arts appliqués Olivier de Serres à Paris. Lui est créateur graphique et photographe, elle, architecte d\'intérieur et plasticienne. Ensemble, ils fondent un studio de design graphique en 1996 et développent un procédé de photographie plastique novateur qui leur permet de faire de nombreuses expositions en France et à l\'étranger. 
+
+En parallèle de leur activité de design, Manolo et Pia ont également un atelier dans lequel ils peignent à quatre mains. Ils réalisent des oeuvres à l\'acrylique sur toile représentant principalement des paysages aux tons chauds et automnaux dans un style figuratif et stylisé.
+');
         $manager->persist($artist);
         $this->addReference('artist-6', $artist);
 

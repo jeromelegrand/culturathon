@@ -35,27 +35,116 @@ class ArtworkFixtures extends Fixture  implements DependentFixtureInterface
     public function load(ObjectManager $manager)
     {
         $artwork = new Artwork();
-        $artwork->setName('Une oeuvre');
-        $artwork->setCharacteristics('Des caractéristiques');
-        $artwork->setArtist($this->getReference('artist-1'));
+        $artwork->setName('New York City Vertighorizon');
+        $artwork->setCharacteristics('160x106cm Photographie sur aluminium');
+        $artwork->setArtist($this->getReference('artist-4'));
 
-        $artwork->setMuseum($this->getReference('museum-2'));
-        $artwork->setArtStyle($this->getReference('style-1'));
-        $artwork->setType('Peinture');
+        $artwork->setMuseum($this->getReference('museum-1'));
+        $artwork->setArtStyle($this->getReference('style-2'));
+        $artwork->setType('Photographie');
         $artwork->setPicture('/images/manolo.jpg');
 
-        $artwork->setJuniorDescription('une description junior');
+        $artwork->setJuniorDescription('La photographie représente la ville de New York aux Etats Unis avec des effets verticaux et horizontaux.');
         $voiceId = uniqid();
         $this->textToSpeech->generateAudioFile($artwork->getJuniorDescription(), $voiceId);
         $artwork->setJuniorAudio($voiceId . '.mp3');
 
-        $artwork->setStandardDescription('une description standard');
+        $artwork->setStandardDescription('La photographie représente beauté de la ville de New York et ses différentes couleurs par des effets verticaux et horizontaux. La photographie est présentée sur aluminium afin de garder le coté métallique de la ville.');
         $voiceId = uniqid();
         $this->textToSpeech->generateAudioFile($artwork->getStandardDescription(), $voiceId);
         $artwork->setStandardAudio($voiceId . '.mp3');
 
         $artwork->setAdvancedDescription('Manolo Chrétien est un photographe plasticien. Fils de pilote ayant grandi près de la base aérienne à Orange, il se fascine très jeune, pour l\'aéronautique, et ces fantastiques machines crées pour accélérer le temps. Avions, voitures et fusées sont les symboles d\'un monde en mouvement qui repousse toutes les frontières. Manolo Chrétien en capture la beauté magique pour l’imprimer sur aluminium. Ses ‘alluminations’ sont le miroir de l\'ambition humaine. 
 L’artiste a prolongé sa recherche photographique sur la fluidité et les reflets en investiguant la dynamique des vagues et des flux aquatiques. Au travers son regard, l’océan devient une onde métallique, une mécanique naturelle. Manolo Chrétien vit et travaille en France.
+');
+        $voiceId = uniqid();
+        $this->textToSpeech->generateAudioFile($artwork->getAdvancedDescription(), $voiceId);
+        $artwork->setAdvancedAudio($voiceId . '.mp3');
+
+        $artwork = new Artwork();
+        $artwork->setName('New York City Vertighorizon');
+        $artwork->setCharacteristics('160x106cm Photographie sur aluminium');
+        $artwork->setArtist($this->getReference('artist-4'));
+
+        $artwork->setMuseum($this->getReference('museum-1'));
+        $artwork->setArtStyle($this->getReference('style-2'));
+        $artwork->setType('Photographie');
+        $artwork->setPicture('/images/manolo.jpg');
+
+        $artwork->setJuniorDescription('La photographie représente la ville de New York aux Etats Unis avec des effets verticaux et horizontaux.');
+        $voiceId = uniqid();
+        $this->textToSpeech->generateAudioFile($artwork->getJuniorDescription(), $voiceId);
+        $artwork->setJuniorAudio($voiceId . '.mp3');
+
+        $artwork->setStandardDescription('La photographie représente beauté de la ville de New York et ses différentes couleurs par des effets verticaux et horizontaux. La photographie est présentée sur aluminium afin de garder le coté métallique de la ville.');
+        $voiceId = uniqid();
+        $this->textToSpeech->generateAudioFile($artwork->getStandardDescription(), $voiceId);
+        $artwork->setStandardAudio($voiceId . '.mp3');
+
+        $artwork->setAdvancedDescription('Manolo Chrétien est un photographe plasticien. Fils de pilote ayant grandi près de la base aérienne à Orange, il se fascine très jeune, pour l\'aéronautique, et ces fantastiques machines crées pour accélérer le temps. Avions, voitures et fusées sont les symboles d\'un monde en mouvement qui repousse toutes les frontières. Manolo Chrétien en capture la beauté magique pour l’imprimer sur aluminium. Ses ‘alluminations’ sont le miroir de l\'ambition humaine. 
+L’artiste a prolongé sa recherche photographique sur la fluidité et les reflets en investiguant la dynamique des vagues et des flux aquatiques. Au travers son regard, l’océan devient une onde métallique, une mécanique naturelle. Manolo Chrétien vit et travaille en France.
+');
+        $voiceId = uniqid();
+        $this->textToSpeech->generateAudioFile($artwork->getAdvancedDescription(), $voiceId);
+        $artwork->setAdvancedAudio($voiceId . '.mp3');
+
+        $manager->persist($artwork);
+
+        $artwork = new Artwork();
+        $artwork->setName('Lueur de Loire');
+        $artwork->setCharacteristics('80x80cm, Techniques mixtes, Peinture sur toile');
+        $artwork->setArtist($this->getReference('artist-6'));
+
+        $artwork->setMuseum($this->getReference('museum-1'));
+        $artwork->setArtStyle($this->getReference('style-2'));
+        $artwork->setType('Peinture');
+        $artwork->setPicture('/images/lueur-de-loire.jpeg');
+
+        $artwork->setJuniorDescription('Cette peinture représente des arbres dans les tons ocres et bleus.');
+        $voiceId = uniqid();
+        $this->textToSpeech->generateAudioFile($artwork->getJuniorDescription(), $voiceId);
+        $artwork->setJuniorAudio($voiceId . '.mp3');
+
+        $artwork->setStandardDescription('Le tableau représente un paysage naturel avec deux arbres et un lac dans les tons ocre et bleus. Le style anguleux apporte une atmosphère pesante sur le ressenti du spectateur.');
+        $voiceId = uniqid();
+        $this->textToSpeech->generateAudioFile($artwork->getStandardDescription(), $voiceId);
+        $artwork->setStandardAudio($voiceId . '.mp3');
+
+        $artwork->setAdvancedDescription('Man&Pia est un duo d\'artistes formé par Manolo Chétien et Pia Loro, qui se sont rencontrés en 1987 aux Arts appliqués Olivier de Serres à Paris. Lui est créateur graphique et photographe, elle, architecte d\'intérieur et plasticienne. Ensemble, ils fondent un studio de design graphique en 1996 et développent un procédé de photographie plastique novateur qui leur permet de faire de nombreuses expositions en France et à l\'étranger. 
+
+En parallèle de leur activité de design, Manolo et Pia ont également un atelier dans lequel ils peignent à quatre mains. Ils réalisent des oeuvres à l\'acrylique sur toile représentant principalement des paysages aux tons chauds et automnaux dans un style figuratif et stylisé.
+');
+        $voiceId = uniqid();
+        $this->textToSpeech->generateAudioFile($artwork->getAdvancedDescription(), $voiceId);
+        $artwork->setAdvancedAudio($voiceId . '.mp3');
+
+        $manager->persist($artwork);
+
+        $artwork = new Artwork();
+        $artwork->setName('Cable Car');
+        $artwork->setCharacteristics('130.97 cm,
+French Art Studio – Londre en Angleterre.
+');
+        $artwork->setArtist($this->getReference('artist-6'));
+
+        $artwork->setMuseum($this->getReference('museum-2'));
+        $artwork->setArtStyle($this->getReference('style-2'));
+        $artwork->setType('Peinture');
+        $artwork->setPicture('/images/cable-car.jpeg');
+
+        $artwork->setJuniorDescription('Cette peinture représente des voitures dans une ville.');
+        $voiceId = uniqid();
+        $this->textToSpeech->generateAudioFile($artwork->getJuniorDescription(), $voiceId);
+        $artwork->setJuniorAudio($voiceId . '.mp3');
+
+        $artwork->setStandardDescription('Le tableau représente un paysage urbain dans les tons ocre et bleus. Le style anguleux apporte une atmosphère pesante sur le ressenti du spectateur.');
+        $voiceId = uniqid();
+        $this->textToSpeech->generateAudioFile($artwork->getStandardDescription(), $voiceId);
+        $artwork->setStandardAudio($voiceId . '.mp3');
+
+        $artwork->setAdvancedDescription('Man&Pia est un duo d\'artistes formé par Manolo Chétien et Pia Loro, qui se sont rencontrés en 1987 aux Arts appliqués Olivier de Serres à Paris. Lui est créateur graphique et photographe, elle, architecte d\'intérieur et plasticienne. Ensemble, ils fondent un studio de design graphique en 1996 et développent un procédé de photographie plastique novateur qui leur permet de faire de nombreuses expositions en France et à l\'étranger. 
+
+En parallèle de leur activité de design, Manolo et Pia ont également un atelier dans lequel ils peignent à quatre mains. Ils réalisent des oeuvres à l\'acrylique sur toile représentant principalement des paysages aux tons chauds et automnaux dans un style figuratif et stylisé.
 ');
         $voiceId = uniqid();
         $this->textToSpeech->generateAudioFile($artwork->getAdvancedDescription(), $voiceId);
