@@ -1,16 +1,18 @@
 {% extends 'base.html.twig' %}
-
 {% block body %}
+    <div class="text-center blackground">
+        <h1>Musées</h1>
+    </div>
     <div class="text-center">
-        <h1>Musées</h1><a class="btn btn-violet text-right" href="{{ path('museum_new') }}">Nouveau Musée</a>
+        <a class="btn btn-violet text-right" href="{{ path('museum_new') }}">Nouveau Musée</a>
     </div>
     <div class="row no-gutters">
         {% for museum in museums %}
             <div class="col-xs-6 col-sm-4 col-md-3">
-                <div class="card" >
+                <div class="card blackground" >
                     <div class="card-body text-center">
                         <h5 class="card-title">{{ museum.name }}, {{ museum.city|upper }}</h5>
-                        <a class="btn btn-orange" href="{{ path('museum_edit', { 'id': museum.id }) }}">Modifier</a>
+                        <a class="btn btn-green" href="{{ path('museum_edit', { 'id': museum.id }) }}">Modifier</a>
                     </div>
                 </div>
             </div>

@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="text-center">
+    <div class="text-center blackground mb-3">
         <h1>Modification {{ museum.name }}</h1>
     </div>
 
@@ -11,11 +11,13 @@
         {{ form_end(delete_form) }}
     </div>
 
-    {{ form_start(edit_form) }}
-    {{ form_widget(edit_form) }}
-    <div class="text-center">
-        <input class="btn btn-orange" type="submit" value="Modifier" />
-        <a class="btn btn-green" href="{{ path('museum_index') }}">Retour</a>
+    <div class="blackground">
+        {{ form_start(edit_form) }}
+        {{ form_widget(edit_form) }}
+        <div class="text-center">
+            <input class="btn btn-orange" type="submit" value="Modifier" />
+            <a class="btn btn-green" href="{{ path('museum_index') }}">Retour</a>
+        </div>
+        {{ form_end(edit_form) }}
     </div>
-    {{ form_end(edit_form) }}
 {% endblock %}

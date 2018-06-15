@@ -24,6 +24,14 @@ body{
   background-color: $background-color;
   color : $text-color;
   font-family: Nanum Gothic;
+  background-image: url('web/images/castle-1998435_1920-black.jpg');
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-attachement:fixed;
+}
+
+.container{
+  padding-top:10px;
 }
 
 .name {
@@ -63,10 +71,18 @@ audio{
   border-radius:0px;
 }
 
+.blackground {
+  background-color:rgba(0, 0, 0, 0.8);
+  padding:10px;
+}
+
+.blackground-card {
+  padding:0px;
+}
+
 /************ Cards ********************/
 
 .card{
-  background-color: $background-color;
   border-radius:0px;
   margin:5px;
 }
@@ -254,7 +270,7 @@ audio{
 
 /******* ARTWORK SHOW *********/
 .favorite {
-  font-size: 40px;
+  font-size: 25px;
   color: hotpink;
 
   &:hover {

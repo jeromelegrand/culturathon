@@ -22,6 +22,12 @@ class User extends BaseUser
      */
     protected $id;
 
+    /**
+     * @var string niveau de l'utilisateur
+     * @ORM\Column(name="level", type="string")
+     */
+    private $level = "standard";
+
 
     /**
      * Get id
@@ -39,5 +45,29 @@ class User extends BaseUser
     public function __construct()
     {
         parent::__construct();
+    }
+
+    /**
+     * Set level
+     *
+     * @param string $level
+     *
+     * @return User
+     */
+    public function setLevel($level)
+    {
+        $this->level = $level;
+
+        return $this;
+    }
+
+    /**
+     * Get level
+     *
+     * @return string
+     */
+    public function getLevel()
+    {
+        return $this->level;
     }
 }

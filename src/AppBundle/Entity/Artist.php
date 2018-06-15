@@ -241,4 +241,14 @@ class Artist
     {
         return $this->getFirstname() . ' ' . $this->getLastname();
     }
+
+    /**
+     * Get Fullname
+     *
+     * @return string
+     */
+    public function getFullName()
+    {
+        return $this->getFirstname() . ' ' . $this->getLastname();
+    }
 }
