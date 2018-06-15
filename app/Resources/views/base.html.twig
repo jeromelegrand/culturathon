@@ -13,9 +13,9 @@
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark">
             <span class="navbar-brand mb-0 h1 name">
-                <a href="{{ path('artwork_index') }}">
-                    <span class="c-letter">C</span>
-                    <span class="o-letter">o</span>
+                <a href="{{ path('homepage') }}">
+                    <span class="c-letter">c</span>
+                    <span class="o-letter">O</span>
                     <span class="m-letter">m</span>
                     <span class="p-letter">p</span>
                     <span class="g-letter">'</span>
@@ -30,7 +30,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link btn btn-menu" href="{{ path('homepage') }}">Oeuvres</a>
+                        <a class="nav-link btn btn-menu" href="{{ path('artwork_index') }}">Oeuvres</a>
                     </li>
                     {% if is_granted("ROLE_ADMIN") %}
                         <li class="nav-item">

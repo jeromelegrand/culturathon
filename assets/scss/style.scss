@@ -33,18 +33,38 @@ body{
 .container{
   padding-top:10px;
 }
+.artist {
+  color: $text-color;
+  &:hover {
+    cursor: pointer;
+    color: darken($text-color, 30%);
+  }
+}
 
 .name {
+  a:link {
+    text-decoration: none;
+  }
 
-  .c-letter {
+  a:hover {
+    color:$violet;
+  }
+
+  .o-letter {
     color: $turquoise;
   }
   .a-letter {
     color: $orange;
   }
-  .o-letter .m-letter .p-letter .r-letter .t-letter {
-
+  .c-letter, .m-letter, .p-letter, .r-letter, .t-letter {
+    color: $blue;
   }
+
+
+}
+
+.apostrophe {
+  color:$violet;
 }
 
 
@@ -243,7 +263,7 @@ audio{
     border-bottom: 1px solid darken($text-color, 50%);
     margin-top: 20px;
     span {
-      color: darken($text-color, 50%);
+      color: $text-color;
     }
   }
 
