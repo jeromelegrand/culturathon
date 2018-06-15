@@ -62,14 +62,11 @@ body{
   .c-letter, .m-letter, .p-letter, .r-letter, .t-letter {
     color: $blue;
   }
-
-
 }
 
 .apostrophe {
   color:$violet;
 }
-
 
 .form-control, .form-control:focus {
   background-color: lighten( $background-color, 10% );
@@ -105,22 +102,21 @@ audio{
 
 /************ Cards ********************/
 
-.card{
+.card {
   border-radius:0px;
   margin:5px;
 }
 
-.card-img-top{
+.card-img-top {
   height:250px;
   object-fit: cover;
-
 }
-.link-list{
+
+.link-list {
   border:15px solid #FFF;
 }
 
-.image-wrapper::after
-{
+.image-wrapper::after {
   box-shadow: inset 3px 3px 10px 0 #000000;
   content: '';
   display: block;
