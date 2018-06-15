@@ -75,7 +75,7 @@ L’artiste a prolongé sa recherche photographique sur la fluidité et les refl
         $artwork->setMuseum($this->getReference('museum-1'));
         $artwork->setArtStyle($this->getReference('style-2'));
         $artwork->setType('Peinture');
-        $artwork->setPicture('/images/lueur-de-loire.jpeg');
+        $artwork->setPicture('/images/lueur-de-loire.jpg');
 
         $artwork->setJuniorDescription('Cette peinture représente des arbres dans les tons ocres et bleus.');
         $voiceId = uniqid();
@@ -108,7 +108,7 @@ French Art Studio – Londre en Angleterre.
         $artwork->setMuseum($this->getReference('museum-2'));
         $artwork->setArtStyle($this->getReference('style-2'));
         $artwork->setType('Peinture');
-        $artwork->setPicture('/images/cable-car.jpeg');
+        $artwork->setPicture('/images/cable-car.jpg');
 
         $artwork->setJuniorDescription('Cette peinture représente des voitures dans une ville.');
         $voiceId = uniqid();
@@ -139,7 +139,7 @@ En parallèle de leur activité de design, Manolo et Pia ont également un ateli
         $artwork->setMuseum($this->getReference('museum-2'));
         $artwork->setArtStyle($this->getReference('style-2'));
         $artwork->setType('Peinture');
-        $artwork->setPicture('/images/image1.jpeg');
+        $artwork->setPicture('/images/image1.jpg');
 
         $artwork->setJuniorDescription('description junior');
         $voiceId = uniqid();
@@ -166,7 +166,7 @@ En parallèle de leur activité de design, Manolo et Pia ont également un ateli
         $artwork->setMuseum($this->getReference('museum-2'));
         $artwork->setArtStyle($this->getReference('style-2'));
         $artwork->setType('Peinture');
-        $artwork->setPicture('/images/image2.jpeg');
+        $artwork->setPicture('/images/image2.jpg');
 
         $artwork->setJuniorDescription('description junior');
         $voiceId = uniqid();
@@ -193,7 +193,7 @@ En parallèle de leur activité de design, Manolo et Pia ont également un ateli
         $artwork->setMuseum($this->getReference('museum-2'));
         $artwork->setArtStyle($this->getReference('style-2'));
         $artwork->setType('Peinture');
-        $artwork->setPicture('/images/image3.jpeg');
+        $artwork->setPicture('/images/image3.jpg');
 
         $artwork->setJuniorDescription('description junior');
         $voiceId = uniqid();
@@ -220,7 +220,7 @@ En parallèle de leur activité de design, Manolo et Pia ont également un ateli
         $artwork->setMuseum($this->getReference('museum-2'));
         $artwork->setArtStyle($this->getReference('style-2'));
         $artwork->setType('Peinture');
-        $artwork->setPicture('/images/image4.jpeg');
+        $artwork->setPicture('/images/image4.jpg');
 
         $artwork->setJuniorDescription('description junior');
         $voiceId = uniqid();
@@ -247,7 +247,7 @@ En parallèle de leur activité de design, Manolo et Pia ont également un ateli
         $artwork->setMuseum($this->getReference('museum-2'));
         $artwork->setArtStyle($this->getReference('style-2'));
         $artwork->setType('Peinture');
-        $artwork->setPicture('/images/image5.jpeg');
+        $artwork->setPicture('/images/image5.jpg');
 
         $artwork->setJuniorDescription('description junior');
         $voiceId = uniqid();
