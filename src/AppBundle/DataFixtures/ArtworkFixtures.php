@@ -75,7 +75,7 @@ L’artiste a prolongé sa recherche photographique sur la fluidité et les refl
         $artwork->setMuseum($this->getReference('museum-1'));
         $artwork->setArtStyle($this->getReference('style-2'));
         $artwork->setType('Peinture');
-        $artwork->setPicture('/images/lueur-de-loire.jpg');
+        $artwork->setPicture('/images/lueur-de-loire.jpeg');
 
         $artwork->setJuniorDescription('Cette peinture représente des arbres dans les tons ocres et bleus.');
         $voiceId = uniqid();
@@ -108,7 +108,7 @@ French Art Studio – Londre en Angleterre.
         $artwork->setMuseum($this->getReference('museum-2'));
         $artwork->setArtStyle($this->getReference('style-2'));
         $artwork->setType('Peinture');
-        $artwork->setPicture('/images/cable-car.jpg');
+        $artwork->setPicture('/images/cable-car.jpeg');
 
         $artwork->setJuniorDescription('Cette peinture représente des voitures dans une ville.');
         $voiceId = uniqid();
