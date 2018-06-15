@@ -1,14 +1,16 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="text-center my-5">
-        <h1 class="mb-3">Styles</h1>
+    <div class="text-center blackground">
+        <h1>Styles</h1>
+    </div>
+    <div class="text-center">
         <a class="btn btn-violet text-right" href="{{ path('artstyle_new') }}">Nouveau Style</a>
     </div>
     <div class="row no-gutters">
         {% for artstyle in artStyles %}
             <div class="col-xs-6 col-sm-4 col-md-3">
-                <div class="card" >
+                <div class="card blackground" >
                     <div class="card-body text-center">
                         <h5 class="card-title">{{ artstyle.name }}</h5>
                         <a class="btn btn-orange" href="{{ path('artstyle_edit', { 'id': artstyle.id }) }}">Modifier</a>
