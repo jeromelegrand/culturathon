@@ -59,7 +59,7 @@
                 {% endif %}
             </div>
 
-            <div class="row mb-2 blackground">
+            <div class="row mb-3 blackground">
                 <div>
                     <h5>Caractéristiques</h5>
                 </div>
@@ -68,25 +68,25 @@
             <div class="blackground">
                 <ul class="nav nav-tabs d-flex justify-content-center" id="myTab" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#junior" role="tab" aria-controls="home" aria-selected="true">Junior</a>
+                        <a class="nav-link {% if app.user.level is defined and app.user.level == 'junior' %}active{% endif %}" id="home-tab" data-toggle="tab" href="#junior" role="tab" aria-controls="home" aria-selected="true">Junior</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#amateur" role="tab" aria-controls="profile" aria-selected="false">Amateur</a>
+                        <a class="nav-link {% if app.user.level is not defined or app.user.level not in ['junior', 'advanced'] %}active{% endif %}" id="profile-tab" data-toggle="tab" href="#amateur" role="tab" aria-controls="profile" aria-selected="false">Amateur</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#expert" role="tab" aria-controls="contact" aria-selected="false">Expert</a>
+                        <a class="nav-link {% if app.user.level is defined and app.user.level == 'advanced' %}active{% endif %}" id="contact-tab" data-toggle="tab" href="#expert" role="tab" aria-controls="contact" aria-selected="false">Expert</a>
                     </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show active col-12" id="junior" role="tabpanel" aria-labelledby="home-tab">
+                    <div class="tab-pane fade {% if app.user.level is defined and app.user.level == 'junior' %} show active{% endif %} col-12" id="junior" role="tabpanel" aria-labelledby="home-tab">
                         <audio src="/audio/files/{{ artwork.juniorAudio }}" controls type="audio/mp3"></audio>
                         <p>{{ artwork.juniorDescription }}</p>
                     </div>
-                    <div class="tab-pane fade col-12" id="amateur" role="tabpanel" aria-labelledby="profile-tab">
+                    <div class="tab-pane fade {% if app.user.level is not defined or app.user.level not in ['junior', 'advanced'] %}show active{% endif %} col-12" id="amateur" role="tabpanel" aria-labelledby="profile-tab">
                         <audio src="/audio/files/{{ artwork.standardAudio }}" controls type="audio/mp3"></audio>
                         <p>{{ artwork.standardDescription }}</p>
                     </div>
-                    <div class="tab-pane fade col-12" id="expert" role="tabpanel" aria-labelledby="contact-tab">
+                    <div class="tab-pane fade {% if app.user.level is defined and app.user.level == 'advanced' %}show active{% endif %} col-12" id="expert" role="tabpanel" aria-labelledby="contact-tab">
                         <audio src="/audio/files/{{ artwork.advancedAudio }}" controls type="audio/mp3"></audio>
                         <p>{{ artwork.advancedDescription }}</p>
                     </div>
@@ -100,20 +100,6 @@
                     <div class="col">
                         <h2>Exposition:</h2>
                         <ul class="museum">
-                            {#
-                            <li>
-                                <p>
-                                    <i class="fa fa-magic" aria-hidden="true"></i>
-                                    <span></span>
-                                </p>
-                            </li>
-                            <li>
-                                <p>
-                                    <i class="fa fa-calendar" aria-hidden="true"></i>
-                                    <span></span>
-                                </p>
-                            </li>
-                            #}
                             <li>
                                 <p>
                                     <i class="fa fa-university" aria-hidden="true"></i>
@@ -127,13 +113,6 @@
                                    <span>{{ artwork.museum.city }}</span>
                                 </p>
                             </li>
-
-                            {# <li>
-                                 <p>
-                                     <i class="fa fa-link" aria-hidden="true"></i>
-                                     <span>{{ artwork.museum.city }}</span>
-                                 </p>
-                             </li>#}
                          </ul>
                      </div>
                  </div>
