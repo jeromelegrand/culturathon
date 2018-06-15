@@ -26,6 +26,20 @@ body{
   font-family: Nanum Gothic;
 }
 
+.name {
+
+  .c-letter {
+    color: $turquoise;
+  }
+  .a-letter {
+    color: $orange;
+  }
+  .o-letter .m-letter .p-letter .r-letter .t-letter {
+
+  }
+}
+
+
 .form-control, .form-control:focus {
   background-color: lighten( $background-color, 10% );
   border-radius:0px;
