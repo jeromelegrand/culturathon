@@ -36,6 +36,8 @@ class ArtistController extends Controller
      *
      * @Route("/new", name="artist_new")
      * @Method({"GET", "POST"})
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function newAction(Request $request)
     {
@@ -62,6 +64,8 @@ class ArtistController extends Controller
      *
      * @Route("/{id}", name="artist_show")
      * @Method("GET")
+     * @param Artist $artist
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function showAction(Artist $artist)
     {
@@ -78,6 +82,9 @@ class ArtistController extends Controller
      *
      * @Route("/{id}/edit", name="artist_edit")
      * @Method({"GET", "POST"})
+     * @param Request $request
+     * @param Artist $artist
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function editAction(Request $request, Artist $artist)
     {
@@ -103,6 +110,9 @@ class ArtistController extends Controller
      *
      * @Route("/{id}", name="artist_delete")
      * @Method("DELETE")
+     * @param Request $request
+     * @param Artist $artist
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function deleteAction(Request $request, Artist $artist)
     {

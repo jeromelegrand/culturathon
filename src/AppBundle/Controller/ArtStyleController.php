@@ -36,6 +36,8 @@ class ArtStyleController extends Controller
      *
      * @Route("/new", name="artstyle_new")
      * @Method({"GET", "POST"})
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function newAction(Request $request)
     {
@@ -62,6 +64,8 @@ class ArtStyleController extends Controller
      *
      * @Route("/{id}", name="artstyle_show")
      * @Method("GET")
+     * @param ArtStyle $artStyle
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function showAction(ArtStyle $artStyle)
     {
@@ -78,6 +82,9 @@ class ArtStyleController extends Controller
      *
      * @Route("/{id}/edit", name="artstyle_edit")
      * @Method({"GET", "POST"})
+     * @param Request $request
+     * @param ArtStyle $artStyle
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function editAction(Request $request, ArtStyle $artStyle)
     {
@@ -103,6 +110,9 @@ class ArtStyleController extends Controller
      *
      * @Route("/{id}", name="artstyle_delete")
      * @Method("DELETE")
+     * @param Request $request
+     * @param ArtStyle $artStyle
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function deleteAction(Request $request, ArtStyle $artStyle)
     {

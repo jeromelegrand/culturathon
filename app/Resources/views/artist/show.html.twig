@@ -1,48 +1,32 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Artist</h1>
+    <div class="row art my-5">
+        <div class="col">
+            <div class="row">
+                <h1>{{ artist.lastname }} {{ artist.firstname }}</h1>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <h2>Né(e) le : <small>{{ artist.dateOfDeath | date('d/m/Y') }}</small></h2>
 
-    <table>
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ artist.id }}</td>
-            </tr>
-            <tr>
-                <th>Firstname</th>
-                <td>{{ artist.firstname }}</td>
-            </tr>
-            <tr>
-                <th>Lastname</th>
-                <td>{{ artist.lastname }}</td>
-            </tr>
-            <tr>
-                <th>Dateofbirth</th>
-                <td>{% if artist.dateOfBirth %}{{ artist.dateOfBirth|date('Y-m-d') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Dateofdeath</th>
-                <td>{% if artist.dateOfDeath %}{{ artist.dateOfDeath|date('Y-m-d') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ artist.description }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('artist_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('artist_edit', { 'id': artist.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+                </div>
+                {% if artist.dateOfDeath is not null %}
+                    <div class="col-sm-6">
+                        <h2>Décédé(e) le : <small>{{ artist.dateOfDeath | date('d/m/Y') }}</small></h2>
+                    </div>
+                {% endif %}
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h2>Decription</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p>{{ artist.description }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
