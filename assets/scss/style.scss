@@ -46,6 +46,10 @@ body{
     text-decoration: none;
   }
 
+  a:hover {
+    color:$violet;
+  }
+
   .o-letter {
     color: $turquoise;
   }
@@ -55,6 +59,12 @@ body{
   .c-letter, .m-letter, .p-letter, .r-letter, .t-letter {
     color: $blue;
   }
+
+
+}
+
+.apostrophe {
+  color:$violet;
 }
 
 
