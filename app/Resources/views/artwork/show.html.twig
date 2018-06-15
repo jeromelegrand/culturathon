@@ -6,46 +6,50 @@
             <div class="row d-block d-md-none">
                 <img class ="img-fluid" src="{{ artwork.picture }}" alt="{{ artwork.name }}">
             </div>
-            <div class="row">
-                <h1>{{ artwork.name }}</h1>
-            </div>
-            <div class="row">
-                <h2><a href="{{ path('artist_show', {'id': artwork.artist.id}) }}">{{ artwork.artist.firstname }} {{ artwork.artist.lastname }}</a></h2>
-            </div>
-            <div class="row">
-                {% if artwork.type == "Photographie" %}
-                    <p>
-                        <i class="fa fa-camera" aria-hidden="true"></i>
-                        Photographie
-                    </p>
-                {% endif %}
-                {% if artwork.type == "Peinture" %}
-                    <p>
-                        <i class="fa fa-paint-brush" aria-hidden="true"></i>
-                        Peinture
-                    </p>
-                {% endif %}
-                {% if artwork.type == "Musique" %}
-                    <p>
-                        <i class="fa fa-music" aria-hidden="true"></i>
-                        Musique
-                    </p>
-                {% endif %}
-                {% if artwork.type == "Sculpture" %}
-                    <p>
-                        <i class="fa fa-sign-language" aria-hidden="true"></i>
-                        Sculpture
-                    </p>
-                {% endif %}
-                {% if artwork.type == "Littérature" %}
-                    <p>
-                        <i class="fa fa-book" aria-hidden="true"></i>
-                        Littérature
-                    </p>
-                {% endif %}
+
+            <div class="blackground">
+                <div class="row">
+                    <h1>{{ artwork.name }}</h1>
+                </div>
+                <div class="row">
+                    <h2>{{ artwork.artist.firstname }} {{ artwork.artist.lastname }}</h2>
+                </div>
+                <div class="row">
+                    {% if artwork.type == "Photographie" %}
+                        <p>
+                            <i class="fa fa-camera" aria-hidden="true"></i>
+                            Photographie
+                        </p>
+                    {% endif %}
+                    {% if artwork.type == "Peinture" %}
+                        <p>
+                            <i class="fa fa-paint-brush" aria-hidden="true"></i>
+                            Peinture
+                        </p>
+                    {% endif %}
+                    {% if artwork.type == "Musique" %}
+                        <p>
+                            <i class="fa fa-music" aria-hidden="true"></i>
+                            Musique
+                        </p>
+                    {% endif %}
+                    {% if artwork.type == "Sculpture" %}
+                        <p>
+                            <i class="fa fa-sign-language" aria-hidden="true"></i>
+                            Sculpture
+                        </p>
+                    {% endif %}
+                    {% if artwork.type == "Littérature" %}
+                        <p>
+                            <i class="fa fa-book" aria-hidden="true"></i>
+                            Littérature
+                        </p>
+                    {% endif %}
+                </div>
             </div>
 
-            <div class="row mb-3">
+
+            <div class="row mb-3 mt-3 blackground justify-content-center">
                 {% if is_granted("ROLE_USER") %}
                     {% if artwork.favorite == false %}
                         <a href="{{ path('artwork_favorite', {id: artwork.id}) }}"><i class="fa fa-heart-o favorite" aria-hidden="true"></i></a>
@@ -55,65 +59,84 @@
                 {% endif %}
             </div>
 
-            <div class="row mb-2">
+            <div class="row mb-2 blackground">
                 <div>
                     <h5>Caractéristiques</h5>
                 </div>
                 <div class="col-12">{{ artwork.characteristics }}</div>
             </div>
-
-            <ul class="nav nav-tabs d-flex justify-content-center" id="myTab" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#junior" role="tab" aria-controls="home" aria-selected="true">Junior</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#amateur" role="tab" aria-controls="profile" aria-selected="false">Amateur</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#expert" role="tab" aria-controls="contact" aria-selected="false">Expert</a>
-                </li>
-            </ul>
-            <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade show active col-12" id="junior" role="tabpanel" aria-labelledby="home-tab">
-                    <audio src="/audio/files/{{ artwork.juniorAudio }}" controls type="audio/mp3"></audio>
-                    <p>{{ artwork.juniorDescription }}</p>
-                </div>
-                <div class="tab-pane fade col-12" id="amateur" role="tabpanel" aria-labelledby="profile-tab">
-                    <audio src="/audio/files/{{ artwork.standardAudio }}" controls type="audio/mp3"></audio>
-                    <p>{{ artwork.standardDescription }}</p>
-                </div>
-                <div class="tab-pane fade col-12" id="expert" role="tabpanel" aria-labelledby="contact-tab">
-                    <audio src="/audio/files/{{ artwork.advancedAudio }}" controls type="audio/mp3"></audio>
-                    <p>{{ artwork.advancedDescription }}</p>
+            <div class="blackground">
+                <ul class="nav nav-tabs d-flex justify-content-center" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#junior" role="tab" aria-controls="home" aria-selected="true">Junior</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#amateur" role="tab" aria-controls="profile" aria-selected="false">Amateur</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#expert" role="tab" aria-controls="contact" aria-selected="false">Expert</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active col-12" id="junior" role="tabpanel" aria-labelledby="home-tab">
+                        <audio src="/audio/files/{{ artwork.juniorAudio }}" controls type="audio/mp3"></audio>
+                        <p>{{ artwork.juniorDescription }}</p>
+                    </div>
+                    <div class="tab-pane fade col-12" id="amateur" role="tabpanel" aria-labelledby="profile-tab">
+                        <audio src="/audio/files/{{ artwork.standardAudio }}" controls type="audio/mp3"></audio>
+                        <p>{{ artwork.standardDescription }}</p>
+                    </div>
+                    <div class="tab-pane fade col-12" id="expert" role="tabpanel" aria-labelledby="contact-tab">
+                        <audio src="/audio/files/{{ artwork.advancedAudio }}" controls type="audio/mp3"></audio>
+                        <p>{{ artwork.advancedDescription }}</p>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-5 offset-1 d-none d-md-block img-rotate">
+        <div class="col-md-5 d-none d-md-block img-rotate">
             <img class="img-fluid" src="{{ artwork.picture }}" alt="{{ artwork.name }}">
-            <div class="row">
-                <div>
-                    <h2>Détails du musée</h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <ul class="museum">
-                        <li>
-                            <p>
-                                <i class="fa fa-university" aria-hidden="true"></i>
-                                <span>{{ artwork.museum.name }}</span>
-                            </p>
-                        </li>
+            <div class="blackground">
+                <div class="row">
+                    <div class="col">
+                        <ul class="museum">
+                            {#
+                            <li>
+                                <p>
+                                    <i class="fa fa-magic" aria-hidden="true"></i>
+                                    <span></span>
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                                    <span></span>
+                                </p>
+                            </li>
+                            #}
+                            <li>
+                                <p>
+                                    <i class="fa fa-university" aria-hidden="true"></i>
+                                    <span>{{ artwork.museum.name }}</span>
+                                </p>
+                            </li>
 
-                        <li>
-                            <p>
-                                <i class="fa fa-car" aria-hidden="true"></i>
-                               <span>{{ artwork.museum.city }}</span>
-                            </p>
-                        </li>
-                     </ul>
+                            <li>
+                                <p>
+                                    <i class="fa fa-car" aria-hidden="true"></i>
+                                   <span>{{ artwork.museum.city }}</span>
+                                </p>
+                            </li>
+
+                            {# <li>
+                                 <p>
+                                     <i class="fa fa-link" aria-hidden="true"></i>
+                                     <span>{{ artwork.museum.city }}</span>
+                                 </p>
+                             </li>#}
+                         </ul>
+                     </div>
                  </div>
-             </div>
+            </div>
          </div>
      </div>
 {% endblock %}
